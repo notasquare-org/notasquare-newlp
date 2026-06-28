@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = `Not a Square｜お問い合わせ`;
+const description = `Not a Square（NaS AI）へのお問い合わせフォーム。サービスやお取引に関するご質問はこちらから。`;
+---
+
+<BaseLayout title={title} description={description}>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="en hero-anim">CONTACT</div>
+    <h1 class="hero-anim d1">お問い合わせ</h1>
+    <div class="breadcrumb hero-anim d2"><a href="/">ホーム</a> ／ お問い合わせ</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:50px;align-items:flex-start" class="grid-2">
+      <!-- info -->
+      <div class="reveal-left">
+        <h2 style="font-size:22px;font-weight:700;margin:0 0 18px">お気軽にお問い合わせください</h2>
+        <p style="font-size:14px;color:#3A3F47;line-height:2;margin:0 0 28px">サービスやお取引に関するご質問など、どんなことでもお気軽にご連絡ください。お問い合わせは右のフォームより承っております。担当者より順次ご返信いたします。</p>
+        <div style="background:#F4F7FE;border-radius:8px;padding:22px 24px">
+          <div style="font-size:13px;font-weight:700;letter-spacing:.08em;color:#14233F;margin-bottom:10px">CONTACT</div>
+          <p style="font-size:13.5px;color:#3A3F47;line-height:1.95;margin:0">右のフォームに必要事項をご入力ください。<br>京阪神および関西一円を中心に、オンラインで全国対応しています。</p>
+          <p style="font-size:12px;color:#6B7079;line-height:1.9;margin:14px 0 0">Not a Square（NaS AI）<br>適格請求書発行事業者 登録番号 T3810366982257</p>
+        </div>
+      </div>
+      <!-- form -->
+      <div class="reveal" style="background:#fff;border:1px solidrgb(14, 48, 117);border-radius:10px;padding:36px 34px;box-shadow:0 14px 34px rgba(28,59,117,.07)">
+        <div style="font-size:16px;font-weight:700;margin-bottom:22px">お問い合わせフォーム</div>
+        <form id="contact-form">
+          <div style="display:flex;flex-direction:column;gap:18px">
+            <label style="font-size:13px;font-weight:700">お問い合わせ種別<select name="種別" style="margin-top:7px;width:100%;padding:12px 14px;border:1px solid #d1d9e8;border-radius:6px;font-size:14px;font-family:inherit;background:#fff"><option>サービスについて</option><option>お取引について</option><option>採用について</option><option>取材・メディア</option><option>その他</option></select></label>
+            <div style="display:flex;gap:16px;flex-wrap:wrap">
+              <label style="flex:1;min-width:200px;font-size:13px;font-weight:700">会社名<input name="会社名" type="text" placeholder="株式会社○○ / ○○株式会社" style="margin-top:7px;width:100%;padding:12px 14px;border:1px solid #d1d9e8;border-radius:6px;font-size:14px;font-family:inherit"></label>
+              <label style="flex:1;min-width:200px;font-size:13px;font-weight:700">お名前 <span style="color:#F0A23C">*</span><input name="お名前" required type="text" placeholder="○○ △△" style="margin-top:7px;width:100%;padding:12px 14px;border:1px solid #d1d9e8;border-radius:6px;font-size:14px;font-family:inherit"></label>
+            </div>
+            <label style="font-size:13px;font-weight:700">メールアドレス <span style="color:#F0A23C">*</span><input name="メールアドレス" required type="email" placeholder="sample@example.com" style="margin-top:7px;width:100%;padding:12px 14px;border:1px solid #d1d9e8;border-radius:6px;font-size:14px;font-family:inherit"></label>
+            <label style="font-size:13px;font-weight:700">お問い合わせ内容 <span style="color:#F0A23C">*</span><textarea name="お問い合わせ内容" required rows="5" placeholder="お問い合わせ内容をご記入ください。" style="margin-top:7px;width:100%;padding:12px 14px;border:1px solid #d1d9e8;border-radius:6px;font-size:14px;font-family:inherit;resize:vertical"></textarea></label>
+            <label style="font-size:12.5px;color:#3A3F47;display:flex;gap:9px;align-items:flex-start"><input required type="checkbox" style="margin-top:3px"><span><a href="/privacy" style="color:#14233F;text-decoration:underline">プライバシーポリシー</a>に同意します</span></label>
+            <!-- スパム対策（ハニーポット）：人間には見えない。botが入力すると送信を無視 -->
+            <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <button type="submit" class="btn btn-primary form-submit" style="justify-content:center;width:100%"><span class="submit-text">送信する</span><span class="submit-loading" style="display:none">送信中...</span></button>
+          </div>
+          <div class="form-done" style="display:none;margin-top:20px;background:#eef7f0;border:1px solid #b7e0c4;border-radius:8px;padding:16px;font-size:13.5px;color:#1f7a45;text-align:center">お問い合わせありがとうございます。担当者より順次ご返信いたします。</div>
+          <div class="form-error" style="display:none;margin-top:20px;background:#fdeef0;border:1px solid #f0b7be;border-radius:8px;padding:16px;font-size:13.5px;color:#b3263a;text-align:center">送信に失敗しました。お手数ですが、時間をおいて再度お試しいただくか、r.sakai@notasquare.org まで直接ご連絡ください。</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    // Google Apps Script のウェブアプリURL（送信先）
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbzl2WcqSA9QODVWdozsqRy9V0PaBXpeT7llih5T1HoJESPewP_3ywKjC5P7PiT4wiMT/exec';
+
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    var btn = form.querySelector('.form-submit');
+    var submitText = form.querySelector('.submit-text');
+    var submitLoading = form.querySelector('.submit-loading');
+    var done = form.querySelector('.form-done');
+    var errorBox = form.querySelector('.form-error');
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (!form.reportValidity()) return;
+
+      // 送信中の表示
+      if (errorBox) errorBox.style.display = 'none';
+      if (btn) btn.disabled = true;
+      if (submitText) submitText.style.display = 'none';
+      if (submitLoading) submitLoading.style.display = 'inline';
+
+      fetch(GAS_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: new FormData(form)
+      }).then(function () {
+        // no-cors のためレスポンス本文は読めないが、送信は完了
+        form.querySelectorAll('input,textarea,select,button').forEach(function (el) { el.disabled = true; });
+        // 送信ボタンを隠して完了メッセージのみ表示
+        if (btn) btn.style.display = 'none';
+        if (done) { done.style.display = 'block'; done.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }).catch(function (error) {
+        console.error('[contact-form] submit failed', error);
+        if (btn) btn.disabled = false;
+        if (submitText) submitText.style.display = 'inline';
+        if (submitLoading) submitLoading.style.display = 'none';
+        if (errorBox) { errorBox.style.display = 'block'; errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      });
+    });
+  })();
+</script>
+
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+// 全ページ共通の「枠」。
+// title / description / active を各ページから受け取ります。
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { title, description, active } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/uploads/titleogo.png">
+  <link rel="apple-touch-icon" href="/uploads/titleogo.png">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <Header active={active} />
+
+  <!-- ↓↓↓ 各ページ固有の中身が、ここに差し込まれます ↓↓↓ -->
+  <slot />
+  <!-- ↑↑↑ -->
+
+  <Footer />
+
+  <button class="to-top" aria-label="ページ上部へ戻る">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V6M6 12l6-6 6 6"/></svg>
+  </button>
+
+  <script is:inline src="/assets/main.js"></script>
+</body>
+</html>

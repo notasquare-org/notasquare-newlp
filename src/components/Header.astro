@@ -1,0 +1,43 @@
+---
+// このヘッダーは全ページで共通。
+// 「今どのページにいるか」を active という名前で受け取り、
+// 該当するメニューだけハイライト（class="active"）します。
+const { active } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo"><img src="/uploads/01_header_logo.png" alt="NaS"></a>
+    <nav class="nav">
+      <a href="/aboutus"  class={active === "aboutus" ? "active" : ""}>概要</a>
+      <a href="/service"  class={active === "service" ? "active" : ""}>事業内容</a>
+      <a href="/record"   class={active === "record"  ? "active" : ""}>実績</a>
+      <a href="/fde"      class={active === "fde"      ? "active" : ""}>FDEとは</a>
+      <a href="/news"     class={active === "news"     ? "active" : ""}>お知らせ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="/download" class="btn btn-sm btn-pill-sm btn-pill-blue">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M10 12h5M10 15h5"/></svg>
+        資料ダウンロード
+      </a>
+      <a href="/consultation" class="btn btn-sm btn-pill-sm btn-pill-warm">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4L3 21l1.1-3.4A8.4 8.4 0 1121 11.5z"/></svg>
+        無料相談
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="メニューを開く">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <a href="/aboutus">概要</a>
+    <a href="/service">事業内容</a>
+    <a href="/record">実績</a>
+    <a href="/fde">FDEとは</a>
+    <a href="/news">お知らせ</a>
+    <div class="m-cta">
+      <a href="/download" class="btn btn-sm btn-pill-sm btn-pill-blue">資料DL</a>
+      <a href="/consultation" class="btn btn-sm btn-pill-sm btn-pill-warm">無料相談</a>
+    </div>
+  </div>
+</header>

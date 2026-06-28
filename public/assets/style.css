@@ -1,0 +1,309 @@
+/* ============================================================
+   NaS Website — Shared Styles
+   ============================================================ */
+:root{
+  /* Brand tokens — Single Source of Truth (06_ブランド正本) */
+  --navy:#14233F;        /* 構造色（ブランドカラー本体） */
+  --navy-deep:#0E1A30;   /* グラデ下端・最深面 */
+  --navy-dark:#0E1A30;
+  --navy-line:#2d4b8a;
+  --gold:#F0A23C;        /* 主CTA（無料相談）／マーカー／eyebrow */
+  --gold-deep:#E08F1E;
+  --gold-soft:#FCE9CF;
+  --orange:#F0A23C;
+  --orange-dark:#E08F1E;
+  --blue:#4278F0;        /* 幾何シェイプ・小アクセント・リンク */
+  --blue-soft:#DCE6FB;
+  --light-blue:#F4F7FE;  /* 淡い青（交互セクション/カード地） */
+  --pale-blue:#dce8f8;
+  --blue-accent:#93b9ef;
+  --border:#E7E2D8;
+  --border-soft:#eef0f2;
+  --ink:#14233F;         /* 見出し */
+  --ink-soft:#3A3F47;    /* 本文 */
+  --ink-muted:#6B7079;   /* 補足 */
+  --success:#1F6E4A;
+  --text:#14233F;
+  --text-muted:#3A3F47;
+  --ghost:#c0c5d6;
+  --font-display:'Space Grotesk',sans-serif; /* ロゴ・ワードマーク専用 */
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;padding:0;
+  font-family:'Inter','Noto Sans JP',sans-serif;
+  color:var(--text);
+  font-feature-settings:"palt" 1,"kern" 1;
+  background:#fff;
+  line-height:1.7;
+  letter-spacing:.02em;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+.container{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+/* ---------- Buttons (総研型＝角丸13px・グラデ＋ふくらみ) ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  border-radius:13px;padding:15px 30px;font-size:15px;font-weight:800;letter-spacing:.02em;
+  cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,filter .25s ease;
+}
+.btn svg{flex:none}
+/* 主CTA（無料相談系）＝オレンジ */
+.btn-accent{background:linear-gradient(180deg,#F7BB5F,#F0A23C 55%,#E78E1D);color:#fff;box-shadow:0 10px 24px rgba(240,162,60,.34),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(240,162,60,.46),inset 0 1px 0 rgba(255,255,255,.4)}
+/* ネイビー */
+.btn-primary{background:linear-gradient(180deg,#22355d,#14233F);color:#fff;box-shadow:0 10px 24px rgba(20,35,63,.32),inset 0 1px 0 rgba(255,255,255,.18)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(20,35,63,.44),inset 0 1px 0 rgba(255,255,255,.18)}
+/* 白・補助（費用概算・資料） */
+.btn-ghost{background:#fff;color:var(--navy);border:1px solid #d6deea}
+.btn-ghost:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,35,63,.14)}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.18)}
+.btn-sm{padding:10px 20px;font-size:13px;border-radius:10px}
+/* ピル型CTA（資料DL＝暖色 / 無料相談＝ブルー）アイコン右寄せ */
+.btn-pill{
+  position:relative;border-radius:999px;
+  padding:18px 58px;min-width:248px;
+  justify-content:center;text-align:center;line-height:1.45;
+  color:#fff;
+}
+.btn-pill svg{position:absolute;right:26px;top:50%;transform:translateY(-50%)}
+.btn-pill-warm{background:linear-gradient(135deg,#E8543B,#EE7C3A 52%,#F2AB3D);box-shadow:0 14px 28px rgba(230,110,50,.34),inset 0 1px 0 rgba(255,255,255,.32)}
+.btn-pill-warm:hover{transform:translateY(-2px);box-shadow:0 20px 36px rgba(230,110,50,.46),inset 0 1px 0 rgba(255,255,255,.32)}
+.btn-pill-blue{background:linear-gradient(135deg,#2C568A,#1C3E6E 55%,#152C52);box-shadow:0 14px 28px rgba(20,45,90,.36),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-pill-blue:hover{transform:translateY(-2px);box-shadow:0 20px 36px rgba(20,45,90,.5),inset 0 1px 0 rgba(255,255,255,.22)}
+/* ヘッダー等のコンパクトなピル（アイコン左・暖色/ブルー共通の角丸） */
+.btn-pill-sm{border-radius:999px;color:#fff}
+.btn-pill-sm.btn-pill-warm{box-shadow:0 6px 16px rgba(230,110,50,.3),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-pill-sm.btn-pill-warm:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(230,110,50,.42),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-pill-sm.btn-pill-blue{box-shadow:0 6px 16px rgba(20,45,90,.32),inset 0 1px 0 rgba(255,255,255,.22)}
+.btn-pill-sm.btn-pill-blue:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,45,90,.46),inset 0 1px 0 rgba(255,255,255,.22)}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:100;background:#fff;
+  border-bottom:1px solid var(--border-soft);
+  transition:box-shadow .3s ease;
+}
+.site-header.scrolled{box-shadow:0 4px 18px rgba(28,59,117,.08)}
+.header-inner{
+  max-width:var(--max);margin:0 auto;padding:14px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.logo img{height:30px;width:auto;display:block}
+.nav{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:500}
+.nav a{position:relative;padding:4px 0;transition:color .2s}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;
+  background:var(--navy);transition:width .3s ease;
+}
+.nav a:hover{color:var(--navy)}
+.nav a:hover::after,.nav a.active::after{width:100%}
+.nav a.active{font-weight:700}
+.header-cta{display:flex;align-items:center;gap:10px}
+.header-cta .btn-ghost{border-radius:10px;padding:9px 16px;font-size:13px}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--navy)}
+
+/* ---------- Section heading ---------- */
+.sec{padding:124px 0 128px}
+.sec-light{background:var(--light-blue)}
+.sec-head{text-align:center;margin-bottom:50px}
+.sec-en{font-size:86px;font-weight:700;letter-spacing:.02em;color:var(--ghost);line-height:1}
+.sec-en.sm{font-size:72px}
+.sec-jp{font-size:20px;font-weight:700;color:var(--navy);margin-top:18px}
+.sec-rule{width:60px;height:2px;background:var(--navy);margin:16px auto 0}
+
+/* ---------- Page hero (sub pages) ---------- */
+.page-hero{
+  position:relative;background:linear-gradient(120deg,#14233F 0%,#284a8c 60%,#2d4b8a 100%);
+  color:#fff;padding:74px 0 70px;overflow:hidden;
+}
+.page-hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 20%,rgba(147,185,239,.35),transparent 45%);
+}
+.page-hero .container{position:relative}
+.page-hero .en{font-size:64px;font-weight:700;color:rgba(255,255,255,.18);line-height:1;letter-spacing:.03em}
+.page-hero h1{font-size:30px;font-weight:700;margin:8px 0 0}
+.breadcrumb{font-size:12.5px;color:rgba(255,255,255,.75);margin-top:18px}
+.breadcrumb a:hover{text-decoration:underline}
+
+/* ---------- CTA band ---------- */
+.cta-band{background:var(--navy);color:#fff;padding:42px 0}
+.cta-band .container{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.cta-band .ttl{font-size:27px;font-weight:700;margin-bottom:8px}
+.cta-band .sub{font-size:14px;color:#c6cdd9}
+.cta-band .actions{display:flex;gap:16px;flex-wrap:wrap}
+.cta-band .btn{padding:15px 26px;font-size:14px}
+.cta-band .btn-pill{padding:16px 54px;font-size:14.5px}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--navy-dark);color:#cdd3df;padding:54px 0 26px;font-size:13px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px;border-bottom:1px solid var(--navy-line)}
+.footer-brand{max-width:300px}
+.footer-brand .mark{font-family:var(--font-display);font-size:24px;font-weight:700;color:#fff;letter-spacing:.04em}
+.footer-brand .tag{font-size:9px;letter-spacing:.34em;color:#9aa4b8;margin-top:2px}
+.footer-brand .addr{line-height:2;color:#aeb6c6;font-size:12.5px;margin-top:18px}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-col{display:flex;flex-direction:column;gap:13px}
+.footer-col .h{color:#fff;font-weight:700;margin-bottom:4px}
+.footer-col a{transition:color .2s}
+.footer-col a:hover{color:#fff}
+.copy{text-align:center;color:#7e889c;font-size:11.5px;padding-top:22px}
+
+/* ---------- Cards / generic ---------- */
+.card{background:#fff;border:1px solid var(--border);transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(28,59,117,.1)}
+.tag-pill{display:inline-block;background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:2px}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.is-visible{opacity:1;transform:none}
+  .reveal-left{opacity:0;transform:translateX(-34px);transition:opacity .7s ease,transform .7s ease}
+  .reveal-left.is-visible{opacity:1;transform:none}
+  .reveal-scale{opacity:0;transform:scale(.94);transition:opacity .6s ease,transform .6s ease}
+  .reveal-scale.is-visible{opacity:1;transform:none}
+  [data-delay="1"]{transition-delay:.08s}
+  [data-delay="2"]{transition-delay:.16s}
+  [data-delay="3"]{transition-delay:.24s}
+  [data-delay="4"]{transition-delay:.32s}
+}
+
+/* hero entrance */
+.hero-anim{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-anim.d1{animation-delay:.12s}
+.hero-anim.d2{animation-delay:.24s}
+@keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* floating image */
+.float{animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* back to top */
+.to-top{
+  position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
+  background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateY(12px);cursor:pointer;border:none;z-index:90;
+  transition:opacity .3s,visibility .3s,transform .3s,background .3s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--orange)}
+
+/* accordion */
+.acc-item{background:#fff;border:1px solid var(--border);margin-bottom:14px;border-radius:4px;overflow:hidden}
+.acc-q{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;
+  text-align:left;background:none;border:none;cursor:pointer;padding:20px 24px;
+  font-size:15.5px;font-weight:700;color:var(--navy);font-family:inherit}
+.acc-q .ic{flex:none;transition:transform .3s ease;color:var(--navy)}
+.acc-item.open .acc-q .ic{transform:rotate(45deg)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.acc-a .inner{padding:0 24px 22px;font-size:13.5px;color:var(--text-muted);line-height:1.95}
+
+/* news filters */
+.news-filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filter-pill{font-size:12.5px;font-weight:500;padding:6px 16px;border-radius:20px;
+  background:#fff;border:1px solid #d1d9e8;color:var(--ink-soft);cursor:pointer;
+  font-family:inherit;line-height:1.4;
+  transition:background .2s ease,color .2s ease,border-color .2s ease}
+.filter-pill:hover{border-color:var(--navy)}
+.filter-pill.active{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:700}
+.news-empty{display:none;text-align:center;color:var(--ink-muted);font-size:13.5px;padding:48px 0}
+.news-empty.show{display:block}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width:920px){
+  .nav,.header-cta{display:none}
+  .nav-toggle{display:block}
+  .site-header.open .mobile-menu{display:block}
+  .mobile-menu{
+    display:none;position:absolute;left:0;right:0;top:100%;background:#fff;
+    border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(28,59,117,.1);padding:14px 32px 22px;
+  }
+  .mobile-menu a{display:block;padding:13px 0;border-bottom:1px solid var(--border-soft);font-weight:500}
+  .mobile-menu .m-cta{display:flex;gap:12px;margin-top:16px}
+  .mobile-menu .m-cta .btn{flex:1;justify-content:center;padding:13px}
+  .sec-en{font-size:58px}
+  .sec-en.sm{font-size:48px}
+  .page-hero .en{font-size:44px}
+}
+@media (min-width:921px){.mobile-menu{display:none}}
+@media (max-width:760px){
+  .container{padding:0 20px}
+  .header-inner{padding:12px 20px}
+  .sec{padding:80px 0 84px}
+  .cta-band .container{flex-direction:column;align-items:flex-start}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr !important}
+  .flow-row{flex-direction:column;gap:8px}
+  .flow-arrow{transform:rotate(90deg);padding:4px 0 !important}
+  .price-row{flex-direction:column}
+  .price-arrow{transform:rotate(90deg)}
+  h1{font-size:34px !important}
+}
+
+/* layout helpers */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+
+/* ============================================================
+   Record detail — number font unification + Before→After UI
+   (shared so all of record-01/02/03 stay in sync)
+   ============================================================ */
+/* 数字のフォントを揃える：データ数値を Space Grotesk の等幅数字に統一
+   （大きな実績数値だけは編集的な Fraunces のまま＝一覧カードと共通） */
+.cd-wrap .cd-spec-list .v,
+.cd-wrap .cd-data{
+  font-family:'Space Grotesk','Noto Sans JP',sans-serif;
+  font-feature-settings:"tnum" 1;
+}
+
+/* ---- Hero metric (削減工数をヒーローに表示) ---- */
+.rec-hero-metric{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:22px}
+.rec-hero-info{display:flex;flex-direction:column;gap:14px}
+.rec-hero-lblwrap{display:flex;flex-direction:column;gap:5px}
+.rec-hero-en{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:#F0A23C}
+.rec-hero-lbl{font-size:14px;font-weight:700;letter-spacing:.04em;color:#dbe6f7}
+.rec-hero-tag{align-self:flex-start;font-size:12px;font-weight:700;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:30px;letter-spacing:.04em;color:#fff}
+.rec-hero-figure{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.rec-hero-val{display:flex;align-items:baseline;gap:7px;line-height:1}
+.rec-hero-val .num{font-family:'Fraunces','Times New Roman',serif;font-optical-sizing:auto;font-size:clamp(60px,13vw,88px);font-weight:600;line-height:.86;color:#fff}
+.rec-hero-val .unit{font-size:18px;font-weight:700;color:#e2eaf6}
+.rec-hero-est{font-size:11px;font-weight:700;color:#0E1A30;background:#cfe0f5;padding:3px 12px;border-radius:30px;letter-spacing:.02em}
+@media(max-width:560px){
+  .rec-hero-figure{align-items:flex-start}
+}
+
+/* ---- 施策（初手の見出しカード：旧メトリクス枠の位置に表示） ---- */
+.cd-top-eyebrow{align-self:flex-start;display:inline-flex;font-size:11px;font-weight:700;letter-spacing:.1em;color:#F0A23C;background:rgba(240,162,60,.12);border:1px solid rgba(240,162,60,.3);padding:5px 13px;border-radius:30px}
+.cd-top-ttl{font-size:clamp(22px,4.4vw,30px);font-weight:700;color:#fff;margin:14px 0 0;line-height:1.45;letter-spacing:.01em}
+
+/* ---- Before → After ---- */
+.cd-ba{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:14px;margin:4px 0 0}
+.cd-ba-col{position:relative;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:11px;border:1px solid #e7ebf3;background:#fff}
+.cd-ba-col.before{background:#fafbfc;border-color:#e9edf3}
+.cd-ba-col.after{background:linear-gradient(180deg,#f3fbf7,#fdfffe);border-color:#cfe9da}
+.cd-ba-h{display:inline-flex;align-items:center;gap:7px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em}
+.cd-ba-col.before .cd-ba-h{color:#9aa3b2}
+.cd-ba-col.after .cd-ba-h{color:#1c9c63}
+.cd-ba-h svg{flex:none}
+.cd-ba-txt{font-size:14px;font-weight:600;color:#14233F;line-height:1.75;margin:0}
+.cd-ba-col.before .cd-ba-txt{color:#5a6271}
+.cd-ba-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-width:104px}
+.cd-ba-act{font-size:10.5px;font-weight:700;color:#1c3b75;background:#eaf0fb;border:1px solid #d7e3f7;padding:5px 11px;border-radius:20px;letter-spacing:.02em;text-align:center;line-height:1.5}
+.cd-ba-arrow{width:42px;height:42px;border-radius:50%;background:#14233F;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(20,35,63,.25)}
+@media(max-width:640px){
+  .cd-ba{grid-template-columns:1fr;gap:10px}
+  .cd-ba-mid{flex-direction:row;gap:12px;min-width:0;padding:2px 0}
+  .cd-ba-arrow{transform:rotate(90deg)}
+}

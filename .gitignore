@@ -3,3 +3,8 @@
 
 # Claude Code のローカル設定（個人環境用・共有不要）
 .claude/settings.local.json
+
+# Astro が自動生成するもの（Git で管理しない）
+node_modules/
+dist/
+.astro/

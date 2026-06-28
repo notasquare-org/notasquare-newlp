@@ -1,0 +1,306 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = `Not a Square｜概要`;
+const description = `Not a Square（NaS AI）の事業概要・理念・運営体制をご紹介します。`;
+
+// 運営メンバー（統一感のある写真を準備中のため、代表＋コアメンバーの2枚で構成。
+// role = カードに表示する肩書き／所属、bio = タップで開く詳細）
+const members = [
+  {
+    name: '酒井 涼雅',
+    role: '代表',
+    photo: '/uploads/member-sakai.jpg',
+    bio: 'NaS（Not a Square）代表。神戸市発シリコンバレー起業家育成プログラム2期生として高校時代に渡米。AI・モバイル・Web領域で10本以上のプロダクトを個人開発し、アプリ甲子園2024 マイナビ賞、令和6年度 近畿総合通信局長賞、高校生アプリアイデアコンテスト 優秀賞などを受賞。現在は農業資材レビュープラットフォーム「Farmille」のCTO、個人事業主として中小企業のAI導入・受託開発を伴走している。',
+  },
+  {
+    name: 'コアメンバー',
+    role: 'FDE人材・システム開発人材 ほか',
+    bio: '現場の業務フローを読み解くFDE人材と、AI・システム開発を担うエンジニアを中心としたチームです。それぞれの専門性を持ち寄り、業務改善からAI実装・保守までを一気通貫で支援します。',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} active="aboutus">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="en hero-anim">ABOUT US</div>
+    <h1 class="hero-anim d1">概要</h1>
+    <div class="breadcrumb hero-anim d2"><a href="/">ホーム</a> ／ 概要</div>
+  </div>
+</section>
+
+<!-- ===== MISSION ===== -->
+<section class="sec mvv mvv-left">
+  <div class="container">
+    <div class="mvv-stage reveal">
+      <div class="mvv-word" aria-hidden="true">
+        <img class="mvv-mark" src="/uploads/titleogo.png" alt="">
+        <span>Mission</span>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-en">MISSION</div>
+        <h2 class="mvv-title">すべての挑戦者に、<br>自己実現の為の「余白」を創る</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISION ===== -->
+<section class="sec sec-light mvv mvv-right">
+  <div class="container">
+    <div class="mvv-stage reveal">
+      <div class="mvv-word" aria-hidden="true">
+        <span>Vision</span>
+        <img class="mvv-mark" src="/uploads/titleogo.png" alt="">
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-en">VISION</div>
+        <h2 class="mvv-title">2030年、日本で一番信頼される<br>FDE企業になり、すべての関わる人が<br>自己実現できる社会を創る。</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VALUE ===== -->
+<section class="sec mvv mvv-left">
+  <div class="container">
+    <div class="mvv-stage reveal">
+      <div class="mvv-word" aria-hidden="true">
+        <img class="mvv-mark" src="/uploads/titleogo.png" alt="">
+        <span>Value</span>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-en">VALUE</div>
+        <h2 class="mvv-title">私たちが大切にする<br>3つの価値観</h2>
+        <div class="mvv-vlist">
+          <div class="mvv-vrow">
+            <span class="mvv-vno">01</span>
+            <div class="mvv-vmain">
+              <div class="mvv-vtitle">現場で証明しろ</div>
+              <p class="mvv-vdesc">提案書ではなく、顧客の隣で動くことで価値を示す。机上の空論ではなく、現場で動く仕組みと数字で成果を証明します。</p>
+            </div>
+          </div>
+          <div class="mvv-vrow">
+            <span class="mvv-vno">02</span>
+            <div class="mvv-vmain">
+              <div class="mvv-vtitle">信頼を雪だるまにしろ</div>
+              <p class="mvv-vdesc">一つの成果が次の信頼を呼ぶ。約束を超える成果だけが信頼を複利で増やす。</p>
+            </div>
+          </div>
+          <div class="mvv-vrow">
+            <span class="mvv-vno">03</span>
+            <div class="mvv-vmain">
+              <div class="mvv-vtitle">枠に収まるな（Not a Square）</div>
+              <p class="mvv-vdesc">既存の常識・業界の枠・年齢の壁、すべてを超えて挑戦する。社名「Not a Square」の語源そのものです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style is:inline>
+    /* ===== MISSION / VISION / VALUE 共通（大きな背景ワード＋ロゴ＋カード） ===== */
+    .mvv{overflow:hidden}
+    .mvv-stage{position:relative;max-width:1040px;margin:0 auto;min-height:540px}
+    /* ロード（スクロールで表示）時に左右からスライドインさせる */
+    .mvv .mvv-stage.reveal{opacity:0;transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+    .mvv-left .mvv-stage.reveal{transform:translateX(-72px)}
+    .mvv-right .mvv-stage.reveal{transform:translateX(72px)}
+    .mvv .mvv-stage.reveal.is-visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){
+      .mvv-left .mvv-stage.reveal,.mvv-right .mvv-stage.reveal{transform:none}
+    }
+    /* 背景の大きな英字＋ロゴ。カードの上端にだけ重なり、文字全体は読めるよう配置 */
+    .mvv-word{display:flex;width:100%;align-items:center;gap:18px;user-select:none;pointer-events:none;font-family:var(--font-display);font-weight:800;font-size:clamp(56px,8.5vw,112px);line-height:1;letter-spacing:.01em;color:#ecebe7}
+    .mvv-left .mvv-word{justify-content:flex-start;margin-left:-48px}
+    .mvv-right .mvv-word{justify-content:flex-end;margin-right:-48px}
+    .mvv-mark{height:clamp(34px,4.6vw,54px);width:auto;flex:none}
+    /* 大ワードの下に並べるテキスト群（重ならない／箱なし） */
+    .mvv-card{background:transparent;border:none;border-radius:0;padding:0;max-width:760px;box-shadow:none}
+    .mvv-left .mvv-card{margin:clamp(14px,2.4vw,28px) 0 0 auto}
+    .mvv-right .mvv-card{margin:clamp(14px,2.4vw,28px) auto 0 0;text-align:right}
+    .mvv-en{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.18em;color:#8fc0c2;margin-bottom:18px}
+    .mvv-title{font-size:clamp(24px,3.4vw,33px);font-weight:700;color:#2a2f37;line-height:1.5;letter-spacing:.01em;margin:0 0 30px}
+    .mvv-body p{font-size:15px;color:#3A3F47;line-height:2.1;margin:0 0 14px}
+    .mvv-body p:last-child{margin-bottom:0}
+    /* VALUE：カード内の3項目リスト */
+    .mvv-vlist{display:flex;flex-direction:column;gap:28px}
+    .mvv-vrow{display:flex;gap:20px;align-items:flex-start;text-align:left}
+    .mvv-vno{flex:none;font-family:var(--font-display);font-size:24px;font-weight:800;color:#8fc0c2;line-height:1.5;min-width:36px}
+    .mvv-vtitle{font-size:18px;font-weight:700;color:#2a2f37;margin-bottom:9px}
+    .mvv-vdesc{font-size:14px;color:#3A3F47;line-height:1.95;margin:0}
+    @media(max-width:760px){
+      .mvv-stage{min-height:0}
+      .mvv-word{justify-content:flex-start !important;margin-left:0 !important;margin-right:0 !important;opacity:.9}
+      .mvv-left .mvv-card,.mvv-right .mvv-card{margin:14px 0 0;text-align:left}
+    }
+  </style>
+</section>
+
+<!-- ===== MEMBER ===== -->
+<section class="sec sec-light">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-en sm">MEMBER</div>
+      <div class="sec-jp">運営メンバー</div>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="member-scroller reveal">
+      {members.map((m, i) => (
+        <>
+        {i > 0 && <div class="member-plus" aria-hidden="true">＋</div>}
+        <button type="button" class="member-card" data-name={m.name} data-role={m.role} data-bio={m.bio} data-photo={m.photo ?? ''}>
+          <div class="member-photo">
+            {m.photo ? (
+              <img src={m.photo} alt={m.name} loading="lazy" />
+            ) : (
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>
+            )}
+          </div>
+          <div class="member-overlay">
+            <div class="member-role">{m.role}</div>
+            <div class="member-name">{m.name}</div>
+          </div>
+        </button>
+        </>
+      ))}
+    </div>
+    <div class="member-hint reveal">カードをタップすると、詳しいプロフィールが開きます</div>
+  </div>
+</section>
+
+<!-- メンバー詳細モーダル -->
+<div class="member-modal" id="memberModal" hidden>
+  <div class="member-modal-backdrop" data-close></div>
+  <div class="member-modal-panel" role="dialog" aria-modal="true" aria-labelledby="mmName">
+    <button type="button" class="member-modal-close" data-close aria-label="閉じる">×</button>
+    <div class="mm-photo" id="mmPhotoWrap" hidden>
+      <img id="mmPhoto" src="" alt="" />
+    </div>
+    <div class="mm-body">
+      <div class="mm-role" id="mmRole"></div>
+      <h3 class="mm-name" id="mmName"></h3>
+      <p class="mm-bio" id="mmBio"></p>
+    </div>
+  </div>
+</div>
+
+<style is:inline>
+  .member-scroller{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;padding:8px 4px 24px}
+  .member-plus{flex:0 0 auto;align-self:center;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(160deg,#F4F7FE,#dbe5f4);box-shadow:inset 0 0 0 1px rgba(16,32,63,.06);font-size:30px;font-weight:300;line-height:1;color:#5b76a3;user-select:none}
+  .member-scroller::-webkit-scrollbar{height:6px}
+  .member-scroller::-webkit-scrollbar-thumb{background:#cfd8e6;border-radius:3px}
+  .member-card{flex:0 0 220px;scroll-snap-align:start;position:relative;border:none;padding:0;cursor:pointer;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:linear-gradient(160deg,#F4F7FE,#dbe5f4);box-shadow:0 12px 30px rgba(16,32,63,.10);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;font-family:inherit;text-align:left}
+  .member-card:hover{transform:translateY(-6px);box-shadow:0 24px 46px rgba(16,32,63,.18)}
+  .member-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#aebfd8}
+  .member-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .member-overlay{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 18px;background:linear-gradient(180deg,rgba(16,32,63,0),rgba(16,32,63,.74));color:#fff}
+  .member-role{font-size:11px;font-weight:700;letter-spacing:.08em;color:#7fc6e6;margin-bottom:6px;line-height:1.4}
+  .member-name{font-size:18px;font-weight:700;line-height:1.3}
+  .member-hint{text-align:center;font-size:12px;color:#6B7079;margin-top:8px}
+
+  .member-modal{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+  .member-modal[hidden]{display:none}
+  .member-modal-backdrop{position:absolute;inset:0;background:rgba(16,32,63,.55)}
+  .member-modal-panel{position:relative;display:flex;align-items:stretch;background:#fff;border-radius:16px;max-width:840px;width:100%;box-shadow:0 30px 70px rgba(0,0,0,.3);max-height:88vh;overflow:hidden}
+  .member-modal-close{position:absolute;top:12px;right:16px;z-index:2;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.9);border:none;border-radius:50%;font-size:24px;line-height:1;color:#3c4658;cursor:pointer;font-family:inherit;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .mm-photo{margin:0;flex:0 0 44%;background:#0f203f}
+  .mm-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .mm-body{flex:1 1 auto;padding:40px 38px;overflow:auto;max-height:88vh}
+  .mm-role{font-size:12px;font-weight:700;letter-spacing:.1em;color:#93b9ef;margin-bottom:8px}
+  .mm-name{font-size:24px;font-weight:700;margin:0 0 16px}
+  .mm-bio{font-size:14px;color:#3c4658;line-height:2;margin:0}
+  @media(max-width:640px){
+    .member-modal-panel{flex-direction:column}
+    .mm-photo{flex:0 0 auto}
+    .mm-photo img{max-height:42vh}
+    .mm-body{padding:24px 22px 28px;max-height:none}
+    .member-card{flex-basis:170px}
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var modal = document.getElementById('memberModal');
+    if (!modal) return;
+    var nameEl = document.getElementById('mmName');
+    var roleEl = document.getElementById('mmRole');
+    var bioEl  = document.getElementById('mmBio');
+    var photoWrap = document.getElementById('mmPhotoWrap');
+    var photoEl = document.getElementById('mmPhoto');
+
+    function open(card) {
+      var name = card.getAttribute('data-name');
+      var photo = card.getAttribute('data-photo');
+      nameEl.textContent = name;
+      roleEl.textContent = card.getAttribute('data-role');
+      bioEl.textContent  = card.getAttribute('data-bio');
+      if (photo) {
+        photoEl.src = photo;
+        photoEl.alt = name;
+        photoWrap.hidden = false;
+      } else {
+        photoEl.removeAttribute('src');
+        photoWrap.hidden = true;
+      }
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.member-card').forEach(function (card) {
+      card.addEventListener('click', function () { open(card); });
+    });
+    modal.querySelectorAll('[data-close]').forEach(function (el) {
+      el.addEventListener('click', close);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) close();
+    });
+  })();
+</script>
+
+<!-- ===== OVERVIEW TABLE ===== -->
+<section class="sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-en sm">OVERVIEW</div>
+      <div class="sec-jp">概要</div>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="reveal" style="max-width:820px;margin:0 auto;border-top:2px solid #14233F">
+      <dl style="margin:0">
+        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">名称</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">Not a Square</dd></div>
+        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">所在地</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">大阪府大阪市淀川区西中島1-9-20 新中島ビル1F</dd></div>
+        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">事業内容</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">FDEによる業務改善（業務フロー監査・AI実装・伴走保守）<br>法人向けAIセミナーの企画・開催</dd></div>
+        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">代表</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">酒井 涼雅</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <div class="reveal-left">
+      <div class="ttl">私たちと一緒に、AI活用を始めませんか？</div>
+      <div class="sub">まずは無料相談で、御社の可能性をお聞かせください。</div>
+    </div>
+    <div class="actions reveal">
+      <a href="/download" class="btn btn-pill btn-pill-blue">
+        資料をダウンロード
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 4 5-4M5 21h14"/></svg>
+      </a>
+      <a href="/consultation" class="btn btn-pill btn-pill-warm">
+        無料相談を申し込む
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
