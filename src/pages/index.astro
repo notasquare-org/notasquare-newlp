@@ -5,7 +5,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // ヒーロー背景のスライドショー画像（建物・握手・チーム・AI活用 などを順に切替）。
 const heroBase = 'https://images.unsplash.com/';
+// PC用は横長、スマホ用は縦構図でトリミング（被写体を中央に残して余白なく全面表示）。
 const heroQuery = '?fm=jpg&q=80&w=1800&auto=format&fit=crop';
+const heroQueryMobile = '?fm=jpg&q=80&w=820&h=1180&fit=crop&crop=center&auto=format';
+// スマホ用の縦トリミングを個別に上書き（被写体が中央から外れる画像だけ）。
+const heroQueryMobileOverrides = {
+  // 「AI」の文字が右寄りなので、中央トリミングだと「A」しか入らない。焦点を右へ寄せて AI 両方を収める。
+  'photo-1677442136019-21780ecad995': '?fm=jpg&q=80&w=820&h=1180&fit=crop&crop=focalpoint&fp-x=0.68&fp-y=0.5&auto=format',
+};
 const heroPhotos = [
   'photo-1486406146926-c627a92ad1ab', // 都市・建物
   'photo-1677442136019-21780ecad995', // AI（タイポグラフィ）
@@ -16,6 +23,7 @@ const heroPhotos = [
   'photo-1488998427799-e3362cec87c3', // デスク（ノート・PC）
 ];
 const heroImages = heroPhotos.map((p) => `${heroBase}${p}${heroQuery}`);
+const heroImagesMobile = heroPhotos.map((p) => `${heroBase}${p}${heroQueryMobileOverrides[p] || heroQueryMobile}`);
 
 // スライドショーのタイミングを枚数から自動計算（無地の区間が出ないように）。
 const slideSlot = 5;                          // 1枚あたりの表示秒数
@@ -55,7 +63,7 @@ const vennPos = ['pos-left', 'pos-right'];
     {heroImages.map((src, i) => (
       <div
         class="hero2-slide"
-        style={`background-image:url("${src}");animation-duration:${heroCycle}s;animation-delay:${i * slideSlot}s`}
+        style={`--bg-d:url("${src}");--bg-m:url("${heroImagesMobile[i]}");animation-duration:${heroCycle}s;animation-delay:${i * slideSlot}s`}
       ></div>
     ))}
   </div>
@@ -87,7 +95,7 @@ const vennPos = ['pos-left', 'pos-right'];
     .hero2{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
     .hero2-slides{position:absolute;inset:0}
     /* 表示秒数と1周の長さはページ側で枚数から計算（animation-duration / delay をインラインで付与） */
-    .hero2-slide{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center;transform-origin:center;will-change:opacity,transform;animation-name:heroSlide;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
+    .hero2-slide{position:absolute;inset:0;opacity:0;background-image:var(--bg-d);background-size:cover;background-position:center;transform-origin:center;will-change:opacity,transform;animation-name:heroSlide;animation-timing-function:ease-in-out;animation-iteration-count:infinite}
     @media(prefers-reduced-motion:reduce){.hero2-slide{animation:none}.hero2-slide:first-child{opacity:1}}
     .hero2-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,22,48,.58),rgba(12,22,48,.40) 45%,rgba(12,22,48,.68))}
     .hero2-inner{position:relative;z-index:2;max-width:880px;padding:130px 32px}
@@ -96,7 +104,9 @@ const vennPos = ['pos-left', 'pos-right'];
     .hero2-sub{font-size:16px;color:#e9eefb;line-height:2.05;margin:0 auto 40px;max-width:720px;text-shadow:0 1px 14px rgba(0,0,0,.4)}
     .hero2-actions{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
     @media(max-width:760px){
-      .hero2-inner{padding:104px 22px 96px}
+      .hero2{min-height:68vh;min-height:68svh}
+      .hero2-slide{background-image:var(--bg-m)}
+      .hero2-inner{padding:88px 22px 80px}
       .hero2-title{font-size:32px;line-height:1.5}
       .hero2-sub{font-size:14.5px}
     }
