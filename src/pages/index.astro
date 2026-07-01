@@ -104,11 +104,13 @@ const vennPos = ['pos-left', 'pos-right'];
     .hero2-sub{font-size:16px;color:#e9eefb;line-height:2.05;margin:0 auto 40px;max-width:720px;text-shadow:0 1px 14px rgba(0,0,0,.4)}
     .hero2-actions{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
     @media(max-width:760px){
-      .hero2{min-height:68vh;min-height:68svh}
+      .hero2{min-height:calc(100vh - 66px);min-height:calc(100svh - 66px)}
       .hero2-slide{background-image:var(--bg-m)}
       .hero2-inner{padding:88px 22px 80px}
       .hero2-title{font-size:32px;line-height:1.5}
       .hero2-sub{font-size:14.5px}
+      /* ヒーロー直下のセクションだけ上余白を詰め、画像下の白帯をなくす（他セクション・PCは変更なし） */
+      .hero2 + .sec{padding-top:0}
     }
   </style>
 </section>
