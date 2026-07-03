@@ -17,7 +17,7 @@ const news = [
 const categories = ['すべて', ...Array.from(new Set(news.map((n) => n.cat)))];
 ---
 
-<BaseLayout title={title} description={description} active="news">
+<BaseLayout title={title} description={description} active="news" breadcrumb={[{ name: 'お知らせ' }]}>
 
 <section class="page-hero">
   <div class="container">

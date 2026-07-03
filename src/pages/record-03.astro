@@ -2,9 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = `紙の納品書を写真からAIデータ化 事例｜Not a Square`;
 const description = `スマホで撮影するだけでAIが納品書を自動データ化。毎日約1時間の手入力をゼロにし、属人化を解消したFDEの事例（大阪・防犯設備業A社）。`;
+
+// 実績（事例）記事の構造化データ。AIが「誰の・何の事例か」を把握しやすくする。
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '紙の納品書を写真からAIデータ化',
+  description,
+  about: '納品書 データ化 OCR',
+  inLanguage: 'ja',
+  author: { '@type': 'Organization', name: 'Not a Square' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Not a Square',
+    logo: { '@type': 'ImageObject', url: 'https://notasquare.co.jp/uploads/titleogo.png' },
+  },
+};
 ---
 
-<BaseLayout title={title} description={description} active="record">
+<BaseLayout title={title} description={description} active="record" breadcrumb={[{ name: '実績', path: '/record' }, { name: '紙納品書のデータ化' }]} schema={articleSchema}>
 
 <section class="page-hero">
   <div class="container">

@@ -2,9 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = `配車スケジュールのGoogleカレンダー自動反映 事例｜Not a Square`;
 const description = `配車データの二重管理・反映漏れを解消。スプレッドシート更新だけで各メンバーのGoogleカレンダーへ自動反映する仕組みをFDEが構築した事例（大阪・防犯設備業A社）。`;
+
+// 実績（事例）記事の構造化データ。AIが「誰の・何の事例か」を把握しやすくする。
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '配車スケジュールのGoogleカレンダー自動反映',
+  description,
+  about: '配車管理 自動化',
+  inLanguage: 'ja',
+  author: { '@type': 'Organization', name: 'Not a Square' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Not a Square',
+    logo: { '@type': 'ImageObject', url: 'https://notasquare.co.jp/uploads/titleogo.png' },
+  },
+};
 ---
 
-<BaseLayout title={title} description={description} active="record">
+<BaseLayout title={title} description={description} active="record" breadcrumb={[{ name: '実績', path: '/record' }, { name: '配車管理の自動連携' }]} schema={articleSchema}>
 
 <section class="page-hero">
   <div class="container">

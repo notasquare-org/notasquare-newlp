@@ -4,8 +4,13 @@
 // ogImage は SNS シェア時のサムネ画像（未指定ならデフォルト画像）。
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+// 会社の基本情報は src/data/company.ts に集約（法人化・移転時はそこだけ更新）。
+import { company } from '../data/company';
 
-const { title, description, active, ogImage = '/uploads/titleogo.png' } = Astro.props;
+// faq       … 渡すと FAQPage 構造化データを出力（Q&Aのあるページのみ）
+// breadcrumb… [{ name, path? }] を渡すと BreadcrumbList を出力（ホームは自動で先頭に付与）
+// schema    … 任意の JSON-LD オブジェクト（配列可）をそのまま追加出力（Article / DefinedTerm など）
+const { title, description, active, ogImage = '/uploads/titleogo.png', faq, breadcrumb, schema } = Astro.props;
 
 // canonical / OGP 用の絶対URLを組み立てる。
 // Astro.site（astro.config の site）を基準に、現在ページのパスで正規URLを作る。
@@ -13,18 +18,74 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
 // 会社情報の構造化データ（JSON-LD / Organization）。
-// Google に事業者名・URL・ロゴを正しく伝える。
+// Google・生成AI（AI Overview等）に事業者の実在性と概要を正しく伝える。
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Not a Square',
-  alternateName: ['NaS AI', 'ナスAI', 'ノットアスクエア', 'NaS'],
+  name: company.name,
+  alternateName: company.alternateName,
   url: Astro.site?.toString(),
-  logo: new URL('/uploads/titleogo.png', Astro.site).toString(),
-  description:
-    'AI開発者が現場に入り込み「一番ムダな業務」から自動化するFDE（Forward Deployed Engineer）。京阪神および関西一円に対応。',
-  areaServed: '京阪神および関西一円',
+  logo: new URL(company.logoPath, Astro.site).toString(),
+  description: company.description,
+  // 所在地（AIが「実在する事業者」と判断するための重要シグナル）
+  address: {
+    '@type': 'PostalAddress',
+    ...company.address,
+  },
+  // 対応エリア（地域クエリでの引用を狙う）
+  areaServed: company.areaServed.map((name) => ({ '@type': 'Place', name })),
+  // 問い合わせ手段
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: company.email,
+    areaServed: 'JP',
+    availableLanguage: 'Japanese',
+  },
+  // 代表者（E-E-A-T：誰が運営しているかを明示）
+  founder: {
+    '@type': 'Person',
+    name: company.founderName,
+  },
+  // 適格請求書発行事業者 登録番号（実在の識別子）
+  identifier: {
+    '@type': 'PropertyValue',
+    name: '適格請求書発行事業者 登録番号',
+    value: company.invoiceRegistrationNumber,
+  },
 };
+
+// FAQ 構造化データ（faq プロップが渡されたページのみ出力）。
+// AI Overview / リッチリザルトのFAQ枠に、質問と回答のペアとして認識させる。
+const faqJsonLd = faq
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    }
+  : null;
+
+// パンくず構造化データ（breadcrumb プロップが渡されたページのみ）。
+// 先頭に「ホーム」を自動付与。path 未指定の項目（＝現在ページ）は canonical を使う。
+const breadcrumbJsonLd = breadcrumb
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [{ name: 'ホーム', path: '/' }, ...breadcrumb].map((c, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: c.name,
+        item: (c.path ? new URL(c.path, Astro.site) : canonicalURL).toString(),
+      })),
+    }
+  : null;
+
+// ページ固有の追加スキーマ（Article / DefinedTerm など）。配列でも単体でも受ける。
+const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 ---
 
 <!DOCTYPE html>
@@ -60,6 +121,15 @@ const orgJsonLd = {
 
   <!-- 構造化データ（会社情報 / JSON-LD） -->
   <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
+
+  <!-- 構造化データ（よくある質問 / FAQPage）。faq を渡したページだけ出力 -->
+  {faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
+
+  <!-- 構造化データ（パンくず / BreadcrumbList）。breadcrumb を渡したページだけ出力 -->
+  {breadcrumbJsonLd && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />}
+
+  <!-- 構造化データ（ページ固有 / Article・DefinedTerm など） -->
+  {extraSchemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

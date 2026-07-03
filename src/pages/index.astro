@@ -50,11 +50,38 @@ const services = [
 ];
 // 円の配置（左・右の2つ）。
 const vennPos = ['pos-left', 'pos-right'];
+
+// よくあるご質問（Q&A）。
+// ここを唯一の情報源にして、下のアコーディオン表示と FAQPage 構造化データ（JSON-LD）の
+// 両方をこの配列から生成します（両者が食い違わないように）。
+const faqs = [
+  {
+    q: '個人事業とのことですが、契約は問題ない？',
+    a: '適格請求書発行事業者（インボイス対応・登録番号 T3810366982257）です。NDAを締結し、フリーランス新法に準拠した契約で進めます（法人化も並行準備中）。',
+  },
+  {
+    q: '社内データの扱いが不安です。',
+    a: '取り扱い範囲は着手前にNDA・契約で個別に合意します。御社環境内で完結させる構成も、外部の高性能AIへ安全に渡す構成も、要件に合わせて設計。「どこに・何を出すか」を曖昧にしないのが原則です。',
+  },
+  {
+    q: 'IT導入補助金は使えますか？',
+    a: 'ツール導入部分は対象になり得ます（補助率1/2〜4/5）。御社で使えるかは無料相談で判定します。受託の自動化部分は原則対象外なので、そこは正直にお伝えします。',
+  },
+  {
+    q: 'いくら・どれくらいかかりますか？',
+    a: '無料診断は¥0から。現状を把握する本診断を経て初期実装を行い、その後の継続運用は月額プラン（Basic 15万円〜・税別）からお選びいただけます。正確な費用は、無料相談と本診断でご提案します。',
+  },
+  {
+    q: '何から始めればいい？',
+    a: '30分の無料相談から。業務を伺い、AIで解ける余地があるか一緒に見極めます。',
+  },
+];
 ---
 
 <BaseLayout
   title="Not a Square（NaS AI）｜雇わずに持てる、御社専属のAI部門。"
   description="Not a Square（NaS AI／ナスAI・ノットアスクエア）は、AI開発者が現場に入り込み「一番ムダな業務」から自動化するFDE（Forward Deployed Engineer）。空いた時間と人を新規事業・本業強化へ転換します。京阪神および関西一円に対応。"
+  faq={faqs}
 >
 
 <!-- ===== HERO ===== -->
@@ -436,26 +463,12 @@ const vennPos = ['pos-left', 'pos-right'];
       <div class="sec-rule"></div>
     </div>
     <div style="max-width:780px;margin:0 auto">
-      <div class="acc-item reveal">
-        <button class="acc-q">個人事業とのことですが、契約は問題ない？<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="acc-a"><div class="inner">適格請求書発行事業者（インボイス対応・登録番号 T3810366982257）です。NDAを締結し、フリーランス新法に準拠した契約で進めます（法人化も並行準備中）。</div></div>
-      </div>
-      <div class="acc-item reveal">
-        <button class="acc-q">社内データの扱いが不安です。<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="acc-a"><div class="inner">取り扱い範囲は着手前にNDA・契約で個別に合意します。御社環境内で完結させる構成も、外部の高性能AIへ安全に渡す構成も、要件に合わせて設計。「どこに・何を出すか」を曖昧にしないのが原則です。</div></div>
-      </div>
-      <div class="acc-item reveal">
-        <button class="acc-q">IT導入補助金は使えますか？<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="acc-a"><div class="inner">ツール導入部分は対象になり得ます（補助率1/2〜4/5）。御社で使えるかは無料相談で判定します。受託の自動化部分は原則対象外なので、そこは正直にお伝えします。</div></div>
-      </div>
-      <div class="acc-item reveal">
-        <button class="acc-q">いくら・どれくらいかかりますか？<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="acc-a"><div class="inner">無料診断は¥0から。現状を把握する本診断を経て初期実装を行い、その後の継続運用は月額プラン（Basic 15万円〜・税別）からお選びいただけます。正確な費用は、無料相談と本診断でご提案します。</div></div>
-      </div>
-      <div class="acc-item reveal">
-        <button class="acc-q">何から始めればいい？<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="acc-a"><div class="inner">30分の無料相談から。業務を伺い、AIで解ける余地があるか一緒に見極めます。</div></div>
-      </div>
+      {faqs.map((f) => (
+        <div class="acc-item reveal">
+          <button class="acc-q">{f.q}<svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+          <div class="acc-a"><div class="inner">{f.a}</div></div>
+        </div>
+      ))}
     </div>
   </div>
 </section>

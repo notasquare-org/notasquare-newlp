@@ -2,9 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = `FDEとは｜現場常駐で成果まで伴走するAI支援｜Not a Square`;
 const description = `FDE（Forward Deployed Engineer）とは何か。現場に入り込み、成果が出るところまで伴走するNaSの支援スタイルをご紹介します。`;
+
+// 「FDEとは」を、AI（AI Overview等）が用語定義として引用しやすい形で構造化する。
+const fdeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: 'FDE（Forward Deployed Engineer）',
+  description:
+    'FDE（Forward Deployed Engineer）とは、顧客の現場に深く入り込み、課題の発見から実装・定着までを一気通貫で支援するエンジニア。「作って終わり」ではなく、成果が出るところまで責任を持つ働き方を指す。',
+  inLanguage: 'ja',
+};
 ---
 
-<BaseLayout title={title} description={description} active="fde">
+<BaseLayout title={title} description={description} active="fde" breadcrumb={[{ name: 'FDEとは' }]} schema={fdeSchema}>
 
 <section class="page-hero">
   <div class="container">
