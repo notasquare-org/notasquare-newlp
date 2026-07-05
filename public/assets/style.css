@@ -148,7 +148,7 @@ img{max-width:100%}
 .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px;border-bottom:1px solid var(--navy-line)}
 .footer-brand{max-width:300px}
 .footer-brand .footer-logo{display:inline-block}
-.footer-brand .footer-logo img{height:34px;width:auto;display:block}
+.footer-brand .footer-logo img{height:30px;width:auto;max-width:100%;display:block}
 .footer-brand .addr{line-height:2;color:#aeb6c6;font-size:12.5px;margin-top:18px}
 .footer-cols{display:flex;gap:64px;flex-wrap:wrap}
 .footer-col{display:flex;flex-direction:column;gap:13px}
