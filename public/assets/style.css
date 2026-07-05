@@ -147,8 +147,8 @@ img{max-width:100%}
 .site-footer{background:var(--navy-dark);color:#cdd3df;padding:54px 0 26px;font-size:13px}
 .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px;border-bottom:1px solid var(--navy-line)}
 .footer-brand{max-width:300px}
-.footer-brand .mark{font-family:var(--font-display);font-size:24px;font-weight:700;color:#fff;letter-spacing:.04em}
-.footer-brand .tag{font-size:9px;letter-spacing:.34em;color:#9aa4b8;margin-top:2px}
+.footer-brand .footer-logo{display:inline-block}
+.footer-brand .footer-logo img{height:34px;width:auto;display:block}
 .footer-brand .addr{line-height:2;color:#aeb6c6;font-size:12.5px;margin-top:18px}
 .footer-cols{display:flex;gap:64px;flex-wrap:wrap}
 .footer-col{display:flex;flex-direction:column;gap:13px}
