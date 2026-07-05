@@ -10,7 +10,7 @@ import { company } from '../data/company';
 // faq       … 渡すと FAQPage 構造化データを出力（Q&Aのあるページのみ）
 // breadcrumb… [{ name, path? }] を渡すと BreadcrumbList を出力（ホームは自動で先頭に付与）
 // schema    … 任意の JSON-LD オブジェクト（配列可）をそのまま追加出力（Article / DefinedTerm など）
-const { title, description, active, ogImage = '/uploads/titleogo.png', faq, breadcrumb, schema } = Astro.props;
+const { title, description, active, ogImage = '/uploads/ogp.png', faq, breadcrumb, schema } = Astro.props;
 
 // canonical / OGP 用の絶対URLを組み立てる。
 // Astro.site（astro.config の site）を基準に、現在ページのパスで正規URLを作る。
@@ -112,12 +112,18 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:image" content={ogImageURL}>
+  <meta property="og:image:secure_url" content={ogImageURL}>
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={title}>
 
   <!-- Twitter（X）カード -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={ogImageURL}>
+  <meta name="twitter:image:alt" content={title}>
 
   <!-- 構造化データ（会社情報 / JSON-LD） -->
   <script type="application/ld+json" set:html={JSON.stringify(orgJsonLd)} />
