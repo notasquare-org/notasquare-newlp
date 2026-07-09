@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = `Not a Square｜情報セキュリティ基本方針`;
+const description = `Not a Square（NaS AI）の情報セキュリティ基本方針。お客様の機密情報や業務データを脅威から保護するための基本方針を定めています。`;
+---
+
+<BaseLayout title={title} description={description} breadcrumb={[{ name: '情報セキュリティ基本方針' }]}>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="en hero-anim">SECURITY POLICY</div>
+    <h1 class="hero-anim d1">情報セキュリティ基本方針</h1>
+    <div class="breadcrumb hero-anim d2"><a href="/">ホーム</a> ／ 情報セキュリティ基本方針</div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="legal reveal" style="max-width:820px;margin:0 auto">
+      <p>Not a Square（以下、当社）は、AI技術を活用した伴走型の業務改善支援（FDE）やシステム開発を通じて、お客様の生産性向上に貢献しております。事業の特性上、お客様の重要な機密情報や業務データをお預かりする機会が多く、これらの情報をサイバー攻撃や情報漏洩等の脅威から保護することは、当社の最重要課題であると認識しております。特にAI技術の活用においては、お客様のデータが意図せず学習に利用されることのないよう、厳格なデータ管理と安全なアーキテクチャの選定を徹底いたします。</p>
+      <p>当社は、お客様ならびに社会からの信頼に応えるため、以下の通り情報セキュリティ基本方針を定め、これを遵守します。</p>
+
+      <h2>1. 情報セキュリティ体制の構築</h2>
+      <p>当社は、代表自らが情報セキュリティ管理の責任者となり、情報セキュリティ対策を社内の正式な規則として定め、確実な運用と継続的な改善を主導します。</p>
+
+      <h2>2. 情報資産の保護</h2>
+      <p>当社は、保有するすべての情報資産の機密性、完全性及び可用性を確保するために、組織的、技術的、物理的、人的な適切な対策を講じます。特に、クラウド環境の利用時、リモートワーク環境下、および外部AIサービスの利用時においては、厳格なアクセス制御と安全なデータ管理を徹底します。</p>
+
+      <h2>3. 法令・規範の遵守</h2>
+      <p>当社は、情報セキュリティに関する法令、国が定める指針、その他の規範及びお客様との契約上のセキュリティ要求事項を厳格に遵守します。</p>
+
+      <h2>4. 教育・訓練の実施</h2>
+      <p>当社は、当社の業務に従事するすべての者（業務委託先を含む）に対して、情報セキュリティの重要性を認識させ、情報資産およびAIツールを適切に取り扱うための教育・訓練を継続的に実施します。</p>
+
+      <h2>5. 違反及び事故への対応</h2>
+      <p>当社は、情報セキュリティに関わる法令違反、契約違反及び事故が発生した場合、またはその予兆を検知した場合には、直ちにお客様および関係機関への報告を行い、迅速な原因究明と被害の最小限化、ならびに再発防止に努めます。</p>
+
+      <h2>6. 継続的改善</h2>
+      <p>当社は、情報セキュリティに関する社会的動向や技術的変化、および自社の監査結果を定期的に評価・見直し、情報セキュリティマネジメントの継続的な改善に努めます。</p>
+
+      <p style="text-align:right;color:#6B7079;font-size:13px;margin-top:30px">制定日：2026年7月8日<br>Not a Square 代表　酒井 涼雅</p>
+    </div>
+  </div>
+</section>
+
+<style is:inline>
+  .legal h2{font-size:18px;font-weight:700;margin:36px 0 12px;padding-left:13px;border-left:4px solid #14233F}
+  .legal p,.legal li{font-size:14px;color:#3c4658;line-height:2}
+  .legal ul,.legal ol{padding-left:22px;margin:8px 0}
+</style>
+</BaseLayout>
