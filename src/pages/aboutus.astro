@@ -131,8 +131,11 @@ const members = [
     .mvv-vdesc{font-size:14px;color:#3A3F47;line-height:1.95;margin:0}
     @media(max-width:760px){
       .mvv-stage{min-height:0}
-      .mvv-word{justify-content:flex-start !important;margin-left:0 !important;margin-right:0 !important;opacity:.9}
-      .mvv-left .mvv-card,.mvv-right .mvv-card{margin:14px 0 0;text-align:left}
+      .mvv-word{margin-left:0 !important;margin-right:0 !important;opacity:.9}
+      .mvv-left .mvv-word{justify-content:flex-start !important}
+      .mvv-right .mvv-word{justify-content:flex-end !important}
+      .mvv-left .mvv-card{margin:14px 0 0;text-align:left}
+      .mvv-right .mvv-card{margin:14px 0 0;text-align:right}
     }
   </style>
 </section>
