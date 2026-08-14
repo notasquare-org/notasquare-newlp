@@ -71,7 +71,10 @@ const members = [
       </div>
       <div class="mvv-card">
         <div class="mvv-en">VISION</div>
-        <h2 class="mvv-title vision-title">2030年、日本で一番信頼される<br>FDE企業になり、すべての<span class="vision-mobile-break"><br></span>関わる人が<br class="vision-desktop-break">自己実現できる社会を創る。</h2>
+        <h2 class="mvv-title vision-title">
+          <span class="vision-desktop-copy">2030年、日本で一番信頼される<br>FDE企業になり、すべての関わる人が<br>自己実現できる社会を創る。</span>
+          <span class="vision-mobile-copy">2030年、日本で一番信頼されるFDE企業になり、<br>すべての関わる人が自己実現できる社会を創る。</span>
+        </h2>
       </div>
     </div>
   </div>
@@ -138,7 +141,7 @@ const members = [
     .mvv-right .mvv-card{margin:clamp(14px,2.4vw,28px) auto 0 0;text-align:right}
     .mvv-en{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.18em;color:#8fc0c2;margin-bottom:18px}
     .mvv-title{font-size:clamp(24px,3.4vw,33px);font-weight:700;color:#2a2f37;line-height:1.5;letter-spacing:.01em;margin:0 0 30px}
-    .vision-mobile-break{display:none}
+    .vision-mobile-copy{display:none}
     .mvv-body p{font-size:15px;color:#3A3F47;line-height:2.1;margin:0 0 14px}
     .mvv-body p:last-child{margin-bottom:0}
     /* VALUE：カード内の3項目リスト */
@@ -154,8 +157,11 @@ const members = [
       .mvv-right .mvv-word{justify-content:flex-end !important}
       .mvv-left .mvv-card{margin:14px 0 0;text-align:left}
       .mvv-right .mvv-card{margin:14px 0 0;text-align:right}
-      .vision-mobile-break{display:inline}
-      .vision-desktop-break{display:none}
+    }
+    @media(max-width:520px){
+      .vision-desktop-copy{display:none}
+      .vision-mobile-copy{display:block;white-space:nowrap}
+      .mvv-title{font-size:clamp(11px,calc((100vw - 40px) * .04),15px);letter-spacing:0;line-height:1.8}
     }
   </style>
 </section>
@@ -242,7 +248,7 @@ const members = [
 </section>
 
 <style is:inline>
-  .member-switcher{max-width:1080px;margin:0 auto}
+  .member-switcher{max-width:960px;margin:0 auto}
   .member-carousel{position:relative}
   .member-carousel-controls{display:flex;justify-content:flex-end;gap:10px;margin-bottom:18px}
   .member-carousel-button{appearance:none;display:grid;width:44px;height:44px;place-items:center;border:1px solid #cad5e3;border-radius:50%;background:#fff;color:#14233F;cursor:pointer;transition:background .25s,border-color .25s,color .25s,opacity .25s}
@@ -294,7 +300,7 @@ const members = [
   @media(max-width:640px){
     .member-carousel-controls{margin-bottom:12px}
     .member-carousel-button{width:40px;height:40px}
-    .member-tabs{grid-auto-columns:78%;gap:12px;padding-bottom:18px;scroll-padding-inline:2px}
+    .member-tabs{grid-auto-columns:68%;gap:12px;padding-bottom:18px;scroll-padding-inline:2px}
     .member-tab{border-radius:12px}
     .member-card{border-radius:10px}
     .member-overlay{padding:36px 9px 10px}
