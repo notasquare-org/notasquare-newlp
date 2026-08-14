@@ -71,7 +71,7 @@ const members = [
       </div>
       <div class="mvv-card">
         <div class="mvv-en">VISION</div>
-        <h2 class="mvv-title">2030年、日本で一番信頼される<br>FDE企業になり、すべての関わる人が<br>自己実現できる社会を創る。</h2>
+        <h2 class="mvv-title vision-title">2030年、日本で一番信頼される<br>FDE企業になり、すべての<span class="vision-mobile-break"><br></span>関わる人が<br class="vision-desktop-break">自己実現できる社会を創る。</h2>
       </div>
     </div>
   </div>
@@ -138,6 +138,7 @@ const members = [
     .mvv-right .mvv-card{margin:clamp(14px,2.4vw,28px) auto 0 0;text-align:right}
     .mvv-en{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.18em;color:#8fc0c2;margin-bottom:18px}
     .mvv-title{font-size:clamp(24px,3.4vw,33px);font-weight:700;color:#2a2f37;line-height:1.5;letter-spacing:.01em;margin:0 0 30px}
+    .vision-mobile-break{display:none}
     .mvv-body p{font-size:15px;color:#3A3F47;line-height:2.1;margin:0 0 14px}
     .mvv-body p:last-child{margin-bottom:0}
     /* VALUE：カード内の3項目リスト */
@@ -153,6 +154,8 @@ const members = [
       .mvv-right .mvv-word{justify-content:flex-end !important}
       .mvv-left .mvv-card{margin:14px 0 0;text-align:left}
       .mvv-right .mvv-card{margin:14px 0 0;text-align:right}
+      .vision-mobile-break{display:inline}
+      .vision-desktop-break{display:none}
     }
   </style>
 </section>
