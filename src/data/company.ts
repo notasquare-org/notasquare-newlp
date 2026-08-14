@@ -1,35 +1,44 @@
 // 会社の基本情報（構造化データ / JSON-LD の元データ）。
-//
-// ⚠️ 法人化・移転・連絡先変更のときは、まずこのファイルだけを更新してください。
-//    ここを直せば、サイト全体の Organization 構造化データ（BaseLayout）に自動で反映されます。
-//    - 法人化   → name / founder の扱い、invoiceRegistrationNumber（法人番号ベース）を見直す
-//    - 移転     → address を更新
-//    - 連絡先変更 → email を更新
+// 登記情報・連絡先に変更がある場合は、まずこのファイルを更新します。
 export const company = {
-  name: 'Not a Square',
-  alternateName: ['NaS AI', 'ナスAI', 'ノットアスクエア', 'NaS'],
+  name: '株式会社Not a Square',
+  englishName: 'Not a Square Inc.',
+  brandName: 'Not a Square',
+  shortName: 'NaS',
+  alternateName: ['Not a Square', 'NaS', 'Not a Square Inc.'],
   url: 'https://notasquare.co.jp/',
   logoPath: '/uploads/titleogo.png',
   description:
-    'AI開発者が現場に入り込み「一番ムダな業務」から自動化するFDE（Forward Deployed Engineer）。京阪神および関西一円に対応。',
+    '株式会社Not a Square（NaS）は、AI開発者が現場に入り込み「一番ムダな業務」から自動化するFDE企業です。京阪神および関西一円に対応します。',
+  foundingDate: '2026-08-13',
 
-  // 代表者（E-E-A-T：誰が運営しているか）
-  founderName: '酒井 涼雅',
+  representative: {
+    name: '酒井涼雅',
+    jobTitle: '代表取締役',
+  },
+  founders: [
+    { name: '酒井涼雅', jobTitle: '共同創業者 / CEO' },
+    { name: '御幡アルバート武嗣', jobTitle: '共同創業者 / COO' },
+    { name: '佐伯勇樹', jobTitle: '共同創業者 / CCO' },
+  ],
 
-  // 問い合わせ先メールアドレス（変更時はここだけ）
-  email: 'r.sakai@notasquare.org',
+  email: 'info@notasquare.co.jp',
+  telephone: '090-6665-6240',
 
-  // 所在地（移転・法人化時に更新）
   address: {
+    postalCode: '532-0011',
     streetAddress: '西中島1-9-20 新中島ビル1F',
     addressLocality: '大阪市淀川区',
     addressRegion: '大阪府',
     addressCountry: 'JP',
   },
 
-  // 対応エリア
   areaServed: ['京阪神', '関西'],
+  capital: '500,000円',
 
-  // 適格請求書発行事業者 登録番号（法人化に伴い法人番号ベースへ変わる想定）
-  invoiceRegistrationNumber: 'T3810366982257',
+  // 番号は確定後に設定し、それまでは表示用のステータスのみを使用します。
+  corporateNumber: null,
+  corporateNumberStatus: '近日公開',
+  invoiceRegistrationNumber: null,
+  invoiceRegistrationStatus: '申請中・近日公開',
 };

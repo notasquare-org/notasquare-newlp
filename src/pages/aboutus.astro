@@ -1,19 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = `Not a Square｜概要`;
-const description = `Not a Square（NaS AI）の事業概要・理念・運営体制をご紹介します。`;
+import { company } from '../data/company';
+const title = `Not a Square｜会社概要`;
+const description = `株式会社Not a Square（NaS）の会社概要、理念、共同創業者をご紹介します。`;
 
-// 運営メンバー（統一感のある写真を準備中のため、代表＋コアメンバーの2枚で構成。
-// role = カードに表示する肩書き／所属）
 const members = [
   {
-    name: '酒井 涼雅',
-    role: '代表',
+    name: '酒井涼雅',
+    role: 'CEO',
     photo: '/uploads/member-sakai.jpg',
+    before:
+      'アプリ制作の全国大会「アプリ甲子園」（現：テック甲子園）で企業賞を受賞。その経験を生かし、個人事業として1年以上にわたり中小企業向けの受託開発サービスを展開してきました。AIコンサルティング会社でのインターンや個人でのAI相談を通じ、AIの進歩を現場へ届ける人材が不足していることを実感。現場主義の実装と運用には、エンジニアリングとコンサルティングの知見を併せ持つ組織が必要だと考え、人・現場課題・AIの循環を生み出すNot a Squareを創業しました。',
+    atNas:
+      '共同創業者／CEOとしてNaSのビジョンを描き、事業執行、技術方針、システム開発、品質、情報セキュリティを統括します。生まれ育った関西を起点に、徹底した現場主義で人々の可能性を広げるAI運用のプロフェッショナル組織をつくります。',
   },
   {
-    name: 'コアメンバー',
-    role: 'FDE人材・システム開発人材 ほか',
+    name: '御幡アルバート武嗣',
+    role: 'COO',
+    photo: '/uploads/member-albert.webp',
+    before:
+      'Boston University卒業後、Google広告営業本部でデジタルマーケティング・広告領域、FGS GlobalでM&Aや企業コミュニケーション、外資系投資銀行で株式・デリバティブ領域の業務を経験しました。会社員として働く一方、2024年にA&A Co.を立ち上げ、学生メンバーとデジタル戦略やAIを活用した事業づくりに取り組みました。生成AIの急速な進化と、関西の中小企業が抱える導入・業務活用のギャップを実感し、目指す方向を同じくするNaSへA&Aの活動を引き継ぐ形で合流しました。',
+    atNas:
+      '共同創業者／COOとして、顧客戦略と事業戦略を中心に担当します。生成AIやAIエージェントの導入自体を目的にせず、実際の業務改善と生産性向上につなげることを重視。テクノロジー、金融、M&A、事業づくりの経験を生かし、顧客対応、事業設計、契約・パートナーシップ、広報などを横断して担います。',
+  },
+  {
+    name: '佐伯勇樹',
+    role: 'CCO',
+    photo: '/uploads/member-saeki.webp',
+    before:
+      'AIコンサルティング会社でインターンとして働き、進化を続けるAIをより広い範囲へ届けるため、自身の影響力を高められる新たな環境で挑戦したいと考えていました。大学のゼミのLINEグループでNot a Squareのメンバー募集を知り、自分の課題意識と重なると感じてすぐに代表の酒井へ連絡し、NaSに合流しました。',
+    atNas:
+      '共同創業者／CCOとして、営業・マーケティングを中心に担当します。顧客セグメント設計、顧客開拓、インタビュー、課題に応じた方針提案、営業予測まで、顧客との接点づくりを幅広く担当。顧客の声をサービスやコンテンツへ還元し、NaSと関西の中小企業をつなぐ、継続的な事業成長の仕組みをつくります。',
   },
 ];
 ---
@@ -144,51 +161,244 @@ const members = [
 <section class="sec sec-light">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="sec-en sm">MEMBER</div>
-      <div class="sec-jp">運営メンバー</div>
+      <div class="sec-en sm">CO-FOUNDERS</div>
+      <div class="sec-jp">共同創業者</div>
       <div class="sec-rule"></div>
     </div>
-    <div class="member-scroller reveal">
-      {members.map((m, i) => (
-        <>
-        {i > 0 && <div class="member-plus" aria-hidden="true">＋</div>}
-        <div class="member-card">
-          <div class="member-photo">
-            {m.photo ? (
-              <img src={m.photo} alt={m.name} loading="lazy" />
-            ) : (
-              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>
-            )}
-          </div>
-          <div class="member-overlay">
-            <div class="member-role">{m.role}</div>
-            <div class="member-name">{m.name}</div>
+    <div class="member-switcher" data-member-switcher>
+      <div class="member-carousel reveal">
+        <div class="member-carousel-controls" aria-label="共同創業者カードのスライド操作">
+          <button class="member-carousel-button" type="button" aria-label="前のメンバーを表示" data-member-prev>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <button class="member-carousel-button" type="button" aria-label="次のメンバーを表示" data-member-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+          </button>
+        </div>
+        <div class="member-tabs" aria-label="共同創業者一覧" data-member-track>
+          {members.map((member, index) => (
+            <button
+              class="member-tab"
+              type="button"
+              id={`member-tab-${index}`}
+              aria-haspopup="dialog"
+              aria-controls="member-modal"
+              aria-expanded="false"
+              data-member-tab={String(index)}
+            >
+              <span class="member-card">
+                <img src={member.photo} alt="" loading="lazy" />
+                <span class="member-overlay">
+                  <span class="member-role">{member.role}</span>
+                  <span class="member-name">{member.name}</span>
+                </span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="member-modal" id="member-modal" data-member-modal hidden>
+        <div class="member-modal-dialog" role="dialog" aria-modal="true" tabindex="-1" data-member-dialog>
+          <button class="member-modal-close" type="button" aria-label="メンバー詳細を閉じる" data-member-close>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+          </button>
+          <div class="member-panels">
+            {members.map((member, index) => (
+              <article
+                class="member-panel"
+                id={`member-panel-${index}`}
+                aria-labelledby={`member-panel-title-${index}`}
+                hidden
+                data-member-panel={String(index)}
+              >
+                <div class="member-detail-photo">
+                  <img src={member.photo} alt={`${member.name}のプロフィール写真`} loading={index === 0 ? 'eager' : 'lazy'} />
+                </div>
+                <div class="member-copy">
+                  <div class="member-detail-heading">
+                    <span>{member.role}</span>
+                    <h2 id={`member-panel-title-${index}`}>{member.name}</h2>
+                  </div>
+                  <div class="member-copy-section">
+                    <h3>NaSに入るまで</h3>
+                    <p>{member.before}</p>
+                  </div>
+                  <div class="member-copy-section">
+                    <h3>NaSで行う業務</h3>
+                    <p>{member.atNas}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
-        </>
-      ))}
+      </div>
     </div>
   </div>
 </section>
 
 <style is:inline>
-  .member-scroller{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;padding:8px 4px 24px}
-  .member-plus{flex:0 0 auto;align-self:center;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(160deg,#F4F7FE,#dbe5f4);box-shadow:inset 0 0 0 1px rgba(16,32,63,.06);font-size:30px;font-weight:300;line-height:1;color:#5b76a3;user-select:none}
-  .member-scroller::-webkit-scrollbar{height:6px}
-  .member-scroller::-webkit-scrollbar-thumb{background:#cfd8e6;border-radius:3px}
-  .member-card{flex:0 0 220px;scroll-snap-align:start;position:relative;border:none;padding:0;border-radius:16px;overflow:hidden;aspect-ratio:3/4;background:linear-gradient(160deg,#F4F7FE,#dbe5f4);box-shadow:0 12px 30px rgba(16,32,63,.10);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;font-family:inherit;text-align:left}
-  .member-card:hover{transform:translateY(-6px);box-shadow:0 24px 46px rgba(16,32,63,.18)}
-  .member-photo{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#aebfd8}
-  .member-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-  .member-overlay{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 18px;background:linear-gradient(180deg,rgba(16,32,63,0),rgba(16,32,63,.74));color:#fff}
-  .member-role{font-size:11px;font-weight:700;letter-spacing:.08em;color:#7fc6e6;margin-bottom:6px;line-height:1.4}
-  .member-name{font-size:18px;font-weight:700;line-height:1.3}
+  .member-switcher{max-width:1080px;margin:0 auto}
+  .member-carousel{position:relative}
+  .member-carousel-controls{display:flex;justify-content:flex-end;gap:10px;margin-bottom:18px}
+  .member-carousel-button{appearance:none;display:grid;width:44px;height:44px;place-items:center;border:1px solid #cad5e3;border-radius:50%;background:#fff;color:#14233F;cursor:pointer;transition:background .25s,border-color .25s,color .25s,opacity .25s}
+  .member-carousel-button:hover:not(:disabled){border-color:#5b9da0;background:#5b9da0;color:#fff}
+  .member-carousel-button:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:3px}
+  .member-carousel-button:disabled{opacity:.3;cursor:default}
+  .member-carousel-button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .member-tabs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 56px)/3);gap:28px;align-items:start;overflow-x:auto;overscroll-behavior-inline:contain;scroll-behavior:smooth;scroll-snap-type:inline mandatory;scrollbar-width:none;padding:6px 2px 24px}
+  .member-tabs::-webkit-scrollbar{display:none}
+  .member-tab{appearance:none;display:block;width:100%;padding:0;border:2px solid transparent;border-radius:18px;background:transparent;color:inherit;text-align:left;cursor:pointer;scroll-snap-align:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+  .member-tab:hover{transform:translateY(-5px)}
+  .member-tab:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:4px}
+  .member-tab[aria-expanded="true"]{transform:translateY(-5px);border-color:#8fc0c2;box-shadow:0 16px 34px rgba(16,32,63,.15)}
+  .member-card{display:block;position:relative;border-radius:15px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#F4F7FE,#dbe5f4)}
+  .member-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .member-tab:hover .member-card img,.member-tab[aria-expanded="true"] .member-card img{transform:scale(1.025)}
+  .member-overlay{position:absolute;left:0;right:0;bottom:0;display:block;padding:64px 20px 20px;background:linear-gradient(180deg,rgba(16,32,63,0),rgba(16,32,63,.84));color:#fff}
+  .member-role{display:block;font-family:var(--font-display);font-size:12px;font-weight:800;letter-spacing:.14em;color:#8ed2ef;margin-bottom:7px;line-height:1.4}
+  .member-name{display:block;font-size:20px;font-weight:700;line-height:1.3}
+  .member-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:24px;background:rgba(10,22,43,.7);backdrop-filter:blur(8px);animation:member-modal-in .25s ease-out}
+  .member-modal[hidden]{display:none}
+  .member-modal-dialog{position:relative;width:min(1120px,100%);max-height:calc(100dvh - 48px);overflow:auto;border-radius:22px;background:#fff;box-shadow:0 30px 90px rgba(3,15,34,.3);outline:none}
+  .member-modal-close{appearance:none;position:absolute;z-index:2;top:16px;right:16px;display:grid;width:44px;height:44px;place-items:center;border:1px solid #d7dee8;border-radius:50%;background:rgba(255,255,255,.94);color:#14233F;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+  .member-modal-close:hover{background:#14233F;color:#fff;transform:rotate(4deg)}
+  .member-modal-close:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:3px}
+  .member-modal-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+  .member-panels{margin:0}
+  .member-panel{grid-template-columns:minmax(280px,380px) minmax(0,1fr);gap:clamp(32px,5vw,62px);align-items:center;padding:clamp(30px,4vw,52px);border-radius:22px;background:#fff;animation:member-panel-in .4s cubic-bezier(.2,.7,.2,1)}
+  .member-panel:not([hidden]){display:grid}
+  .member-panel[hidden]{display:none}
+  .member-detail-photo{overflow:hidden;aspect-ratio:1/1;border-radius:16px;background:linear-gradient(160deg,#F4F7FE,#dbe5f4)}
+  .member-detail-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
+  .member-copy{min-width:0}
+  .member-detail-heading{margin-bottom:28px}
+  .member-detail-heading span{display:block;font-family:var(--font-display);font-size:13px;font-weight:800;letter-spacing:.16em;color:#5b9da0;margin-bottom:7px}
+  .member-detail-heading h2{font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.35;color:#14233F;margin:0}
+  .member-copy-section+.member-copy-section{margin-top:26px}
+  .member-copy h3{font-size:15px;font-weight:700;color:#14233F;margin:0 0 10px;padding-left:11px;border-left:3px solid #8fc0c2}
+  .member-copy p{font-size:14px;color:#3c4658;line-height:2;margin:0}
+  body.member-modal-open{overflow:hidden}
+  @keyframes member-modal-in{from{opacity:0}to{opacity:1}}
+  @keyframes member-panel-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media(max-width:900px){
+    .member-tabs{grid-auto-columns:calc((100% - 32px)/3);gap:16px}
+    .member-panel{grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:30px}
+    .member-overlay{padding:50px 16px 16px}
+    .member-name{font-size:17px}
+  }
   @media(max-width:640px){
-    .member-scroller{flex-direction:column;gap:14px;padding:8px 4px 16px}
-    .member-card{flex:0 0 auto;width:min(280px,78vw)}
-    .member-plus{width:44px;height:44px;font-size:26px}
+    .member-carousel-controls{margin-bottom:12px}
+    .member-carousel-button{width:40px;height:40px}
+    .member-tabs{grid-auto-columns:78%;gap:12px;padding-bottom:18px;scroll-padding-inline:2px}
+    .member-tab{border-radius:12px}
+    .member-card{border-radius:10px}
+    .member-overlay{padding:36px 9px 10px}
+    .member-role{font-size:10px;margin-bottom:4px}
+    .member-name{font-size:clamp(12px,3.6vw,16px)}
+    .member-modal{padding:12px}
+    .member-modal-dialog{max-height:calc(100dvh - 24px);border-radius:16px}
+    .member-modal-close{top:10px;right:10px;width:40px;height:40px}
+    .member-panel{grid-template-columns:1fr;gap:24px;padding:18px;padding-top:64px;border-radius:16px;align-items:start}
+    .member-detail-photo{width:min(360px,100%);margin:0 auto}
+    .member-detail-heading{margin-bottom:23px}
+    .member-copy p{font-size:13.5px;line-height:1.95}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .member-tab,.member-card img,.member-tabs{transition:none;scroll-behavior:auto}
+    .member-panel,.member-modal{animation:none}
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-member-switcher]').forEach((switcher) => {
+    const tabs = Array.from(switcher.querySelectorAll<HTMLButtonElement>('[data-member-tab]'));
+    const panels = Array.from(switcher.querySelectorAll<HTMLElement>('[data-member-panel]'));
+    const modal = switcher.querySelector<HTMLElement>('[data-member-modal]');
+    const dialog = switcher.querySelector<HTMLElement>('[data-member-dialog]');
+    const closeButton = switcher.querySelector<HTMLButtonElement>('[data-member-close]');
+    const track = switcher.querySelector<HTMLElement>('[data-member-track]');
+    const prevButton = switcher.querySelector<HTMLButtonElement>('[data-member-prev]');
+    const nextButton = switcher.querySelector<HTMLButtonElement>('[data-member-next]');
+    let lastTrigger: HTMLButtonElement | null = null;
+
+    const openMember = (index: number) => {
+      if (!modal || !dialog) return;
+      lastTrigger = tabs[index] ?? null;
+      tabs.forEach((tab, tabIndex) => {
+        tab.setAttribute('aria-expanded', String(tabIndex === index));
+      });
+      panels.forEach((panel, panelIndex) => {
+        panel.hidden = panelIndex !== index;
+      });
+      const activePanel = panels[index];
+      if (activePanel) dialog.setAttribute('aria-labelledby', activePanel.getAttribute('aria-labelledby') ?? '');
+      modal.hidden = false;
+      document.body.classList.add('member-modal-open');
+      requestAnimationFrame(() => closeButton?.focus());
+    };
+
+    const closeMember = () => {
+      if (!modal || modal.hidden) return;
+      modal.hidden = true;
+      document.body.classList.remove('member-modal-open');
+      tabs.forEach((tab) => tab.setAttribute('aria-expanded', 'false'));
+      panels.forEach((panel) => { panel.hidden = true; });
+      lastTrigger?.focus();
+    };
+
+    const updateCarouselButtons = () => {
+      if (!track || !prevButton || !nextButton) return;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      prevButton.disabled = track.scrollLeft <= 2;
+      nextButton.disabled = track.scrollLeft >= maxScroll - 2;
+    };
+
+    const slideCards = (direction: number) => {
+      if (!track) return;
+      const firstCard = track.querySelector<HTMLElement>('[data-member-tab]');
+      const styles = getComputedStyle(track);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap) || 0;
+      track.scrollBy({ left: direction * ((firstCard?.offsetWidth ?? track.clientWidth) + gap), behavior: 'smooth' });
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => openMember(index));
+    });
+
+    closeButton?.addEventListener('click', closeMember);
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal) closeMember();
+    });
+    modal?.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMember();
+        return;
+      }
+      if (event.key !== 'Tab' || !dialog) return;
+      const focusable = Array.from(dialog.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'))
+        .filter((element) => !element.hasAttribute('hidden'));
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    prevButton?.addEventListener('click', () => slideCards(-1));
+    nextButton?.addEventListener('click', () => slideCards(1));
+    track?.addEventListener('scroll', updateCarouselButtons, { passive: true });
+    window.addEventListener('resize', updateCarouselButtons);
+    updateCarouselButtons();
+  });
+</script>
 
 <!-- ===== OVERVIEW TABLE ===== -->
 <section class="sec">
@@ -199,15 +409,36 @@ const members = [
       <div class="sec-rule"></div>
     </div>
     <div class="reveal" style="max-width:820px;margin:0 auto;border-top:2px solid #14233F">
-      <dl style="margin:0">
-        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">名称</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">Not a Square</dd></div>
-        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">所在地</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">大阪府大阪市淀川区西中島1-9-20 新中島ビル1F</dd></div>
-        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">事業内容</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">FDEによる業務改善（業務フロー監査・AI実装・伴走保守）<br>法人向けAIセミナーの企画・開催</dd></div>
-        <div style="display:flex;border-bottom:1px solid #e3e5e9"><dt style="width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px">代表</dt><dd style="margin:0;padding:18px 24px;font-size:14px;color:#3c4658">酒井 涼雅</dd></div>
+      <dl class="company-overview">
+        <div><dt>正式法人名</dt><dd>{company.name}</dd></div>
+        <div><dt>英語表記</dt><dd>{company.englishName}</dd></div>
+        <div><dt>設立</dt><dd>2026年8月13日</dd></div>
+        <div><dt>所在地</dt><dd>〒{company.address.postalCode}<br>{company.address.addressRegion}{company.address.addressLocality}{company.address.streetAddress}</dd></div>
+        <div><dt>代表者</dt><dd>{company.representative.jobTitle}　{company.representative.name}</dd></div>
+        <div><dt>共同創業者</dt><dd>{company.founders.map((founder) => founder.name).join('、')}</dd></div>
+        <div><dt>資本金</dt><dd>{company.capital}</dd></div>
+        <div><dt>事業内容</dt><dd>FDEによる業務改善（業務フロー監査・AI実装・伴走保守）<br>法人向けAIセミナーの企画・開催</dd></div>
+        <div><dt>法人番号</dt><dd>{company.corporateNumber ?? company.corporateNumberStatus}</dd></div>
+        <div><dt>適格請求書発行事業者<br>登録番号</dt><dd>{company.invoiceRegistrationNumber ?? company.invoiceRegistrationStatus}</dd></div>
+        <div><dt>メールアドレス</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+        <div><dt>電話番号</dt><dd><a href={`tel:${company.telephone.replaceAll('-', '')}`}>{company.telephone}</a></dd></div>
       </dl>
     </div>
   </div>
 </section>
+
+<style is:inline>
+  .company-overview{margin:0}
+  .company-overview>div{display:flex;border-bottom:1px solid #e3e5e9}
+  .company-overview dt{width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px}
+  .company-overview dd{margin:0;padding:18px 24px;font-size:14px;color:#3c4658;line-height:1.8}
+  .company-overview a{color:#14233F;text-decoration:underline;text-underline-offset:3px}
+  @media(max-width:640px){
+    .company-overview>div{display:block}
+    .company-overview dt{width:auto;padding:13px 16px}
+    .company-overview dd{padding:14px 16px 18px}
+  }
+</style>
 
 <section class="cta-band">
   <div class="container">

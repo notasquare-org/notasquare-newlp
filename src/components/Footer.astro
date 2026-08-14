@@ -1,5 +1,5 @@
 ---
-// 全ページ共通のフッター。中身は固定なので props は不要です。
+import { company } from '../data/company';
 ---
 
 <footer class="site-footer">
@@ -8,18 +8,15 @@
       <div class="footer-brand">
         <a href="/" class="footer-logo"><img src="/uploads/footer_logo.png" alt="Not a Square"></a>
         <div class="addr">
-          Not a Square（NaS AI／ナスAI・ノットアスクエア）<br>
-          適格請求書発行事業者 登録番号<br>
-          T3810366982257<br>
+          {company.name}（{company.shortName}）<br>
+          〒{company.address.postalCode}<br>
+          {company.address.addressRegion}{company.address.addressLocality}{company.address.streetAddress}<br>
           京阪神および関西一円に対応
         </div>
-        <a href="/security-policy" class="footer-security" aria-label="SECURITY ACTION 二つ星 セキュリティ対策自己宣言">
-          <img src="/uploads/security_action_futatsuboshi-large_color.png" alt="SECURITY ACTION 二つ星（セキュリティ対策自己宣言）">
-        </a>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
-          <div class="h">運営者情報</div>
+          <div class="h">会社情報</div>
           <a href="/aboutus">概要</a>
           <a href="/service/">事業内容</a>
           <a href="/record">実績</a>

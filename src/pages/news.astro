@@ -1,15 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const title = `Not a Square｜お知らせ`;
-const description = `Not a Square（NaS AI）からのお知らせ・最新情報を掲載しています。`;
+const description = `株式会社Not a Square（NaS）からのお知らせ・最新情報を掲載しています。`;
 
 // お知らせ一覧（新しい順）。追加するときはここに 1 件追記するだけで OK。
 const news = [
   {
+    date: '2026.08.13',
+    cat: '会社情報',
+    title: '株式会社Not a Squareを設立しました',
+    body: '2026年8月13日、株式会社Not a Squareを設立しました。NaSは、関西の中小企業に寄り添い、現場の課題をAIの実装と運用で解決するFDE企業として、より多くの人と企業の可能性を広げてまいります。',
+  },
+  {
     date: '2026.06.22',
     cat: 'サービス',
     title: 'サイトを公開しました',
-    body: 'Not a Square（NaS AI）のサイトを公開しました。FDE（Forward Deployed Engineer）として、現場に入り込み「一番ムダな業務」から自動化する事業内容をご紹介しています。',
+    body: 'Not a Square（NaS）のサイトを公開しました。FDE（Forward Deployed Engineer）として、現場に入り込み「一番ムダな業務」から自動化する事業内容をご紹介しています。',
   },
 ];
 

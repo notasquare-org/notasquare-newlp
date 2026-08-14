@@ -17,16 +17,30 @@ const { title, description, active, ogImage = '/uploads/ogp.png', faq, breadcrum
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
 
+const orgIdentifiers = [
+  company.corporateNumber && {
+    '@type': 'PropertyValue',
+    name: '法人番号',
+    value: company.corporateNumber,
+  },
+  company.invoiceRegistrationNumber && {
+    '@type': 'PropertyValue',
+    name: '適格請求書発行事業者 登録番号',
+    value: company.invoiceRegistrationNumber,
+  },
+].filter(Boolean);
+
 // 会社情報の構造化データ（JSON-LD / Organization）。
 // Google・生成AI（AI Overview等）に事業者の実在性と概要を正しく伝える。
 const orgJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'Corporation',
   name: company.name,
   alternateName: company.alternateName,
   url: Astro.site?.toString(),
   logo: new URL(company.logoPath, Astro.site).toString(),
   description: company.description,
+  foundingDate: company.foundingDate,
   // 所在地（AIが「実在する事業者」と判断するための重要シグナル）
   address: {
     '@type': 'PostalAddress',
@@ -42,17 +56,17 @@ const orgJsonLd = {
     areaServed: 'JP',
     availableLanguage: 'Japanese',
   },
-  // 代表者（E-E-A-T：誰が運営しているかを明示）
-  founder: {
+  founder: company.founders.map((founder) => ({
     '@type': 'Person',
-    name: company.founderName,
+    name: founder.name,
+    jobTitle: founder.jobTitle,
+  })),
+  employee: {
+    '@type': 'Person',
+    name: company.representative.name,
+    jobTitle: company.representative.jobTitle,
   },
-  // 適格請求書発行事業者 登録番号（実在の識別子）
-  identifier: {
-    '@type': 'PropertyValue',
-    name: '適格請求書発行事業者 登録番号',
-    value: company.invoiceRegistrationNumber,
-  },
+  ...(orgIdentifiers.length ? { identifier: orgIdentifiers } : {}),
 };
 
 // FAQ 構造化データ（faq プロップが渡されたページのみ出力）。
