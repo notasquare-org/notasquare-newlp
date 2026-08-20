@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = `AI業務改善（FDE）・法人向けAIセミナー｜Not a Square`;
-const description = `株式会社Not a Square（NaS）の事業内容。FDEによる業務改善、法人向けAIセミナーの2つの取り組みをご紹介します。`;
+const title = `NaS AI・法人向けAIセミナー｜Not a Square`;
+const description = `株式会社Not a Square（NaS）の事業内容。AIの選定・導入から運用・定着まで伴走するNaS AIと、法人向けAIセミナーをご紹介します。`;
 ---
 
 <BaseLayout title={title} description={description} active="service" breadcrumb={[{ name: '事業内容' }]}>
@@ -20,23 +20,19 @@ const description = `株式会社Not a Square（NaS）の事業内容。FDEに�
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center" class="grid-2">
       <div class="reveal-left">
         <span class="tag-pill">01</span>
-        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">FDEによる業務改善<br>（初期実装〜伴走保守）</h2>
-        <p style="font-size:14.5px;color:#3A3F47;line-height:2;margin:0 0 22px">AI開発者が現場に入り込み、「一番ムダな業務」から自動化します。空いた時間と人を新規事業・本業強化へ。初期実装で余白を生み、月額の伴走・保守でその余白を定着させます。雇うより安く、外注より速く——理由は、オンボーディングが終わっているから。</p>
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#F3F6FB;border:1px solid #d6deea;border-radius:10px;padding:13px 16px;margin:0 0 22px">
-          <span style="font-size:13px;color:#3A3F47;line-height:1.7">そもそも「FDE（Forward Deployed Engineer）」って？</span>
-          <a href="/fde" class="btn btn-ghost btn-sm" style="white-space:nowrap">
-            FDEとは？くわしく見る
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS AI<br>（AI導入〜伴走運用）</h2>
+        <div style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">
+          <p style="margin:0 0 12px">AIエンジニアが現場に入り込み、業務改善を実装・定着・継続支援するサービスです。</p>
+          <p style="margin:0">まず既存の環境をAIを最も効果的に動かせる環境（Google Workspace）に再構築。次に、業務や費用対効果に合ったAIを選定・導入し、月額の伴走・保守でその余白を定着させます。</p>
         </div>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>業務フロー監査</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AIツール選定・実装</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>初期トレーニング</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>月額の伴走・保守・改善</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>業務フロー監査</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AIツール選定・実装</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>初期トレーニング</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>月額の伴走・保守・改善</li>
         </ul>
       </div>
-      <div class="reveal"><img src="/uploads/service-01.png" alt="FDEによる業務改善" style="width:100%;height:320px;object-fit:cover;border-radius:8px"></div>
+      <div class="reveal"><img src="/uploads/service-01.png" alt="NaS AIによるAI導入支援" style="width:100%;height:320px;object-fit:cover;border-radius:8px"></div>
     </div>
   </div>
 </section>
@@ -48,12 +44,12 @@ const description = `株式会社Not a Square（NaS）の事業内容。FDEに�
       <div class="reveal-left" style="direction:ltr">
         <span class="tag-pill">02</span>
         <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">法人向けAIセミナー</h2>
-        <p style="font-size:14.5px;color:#3A3F47;line-height:2;margin:0 0 22px">AI活用を学べるセミナーを企画・開催します。経営者や現場担当者に向けて、専門用語に頼らず「明日から使える」AI活用の基礎から実践までを、事例を交えてお届けします。</p>
+        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">AI活用を学べるセミナーを企画・開催します。経営者や現場担当者に向けて、専門用語に頼らず「明日から使える」AI活用の基礎から実践までを、事例を交えてお届けします。</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>経営者・実務者向けセミナー</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AI活用の基礎〜実践</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>事例で学ぶワークショップ</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#14233F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新動向のキャッチアップ</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>経営者・実務者向けセミナー</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AI活用の基礎〜実践</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>事例で学ぶワークショップ</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新動向のキャッチアップ</li>
         </ul>
       </div>
       <div class="reveal" style="direction:ltr"><img src="/uploads/service-02.png" alt="AIセミナー" style="width:100%;height:320px;object-fit:cover;border-radius:8px"></div>
