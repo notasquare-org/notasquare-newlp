@@ -52,10 +52,37 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの選
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新動向のキャッチアップ</li>
         </ul>
       </div>
-      <div class="reveal" style="direction:ltr"><img src="/uploads/service-02.png" alt="AIセミナー" style="width:100%;height:320px;object-fit:cover;object-position:72% 50%;border-radius:8px"></div>
+      <div class="reveal service-seminar-media" style="direction:ltr">
+        <img class="service-seminar-image" src="/uploads/service-02.png" alt="AIセミナー">
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .service-seminar-media {
+    height: 320px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .service-seminar-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 80% 50%;
+    transform: scale(1.12);
+    transform-origin: 80% 50%;
+  }
+
+  @media (max-width: 768px) {
+    .service-seminar-image {
+      object-position: 72% 50%;
+      transform: none;
+    }
+  }
+</style>
 
 <section class="cta-band">
   <div class="container">
