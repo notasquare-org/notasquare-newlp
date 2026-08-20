@@ -9,17 +9,17 @@ export const company = {
   url: 'https://notasquare.co.jp/',
   logoPath: '/uploads/titleogo.png',
   description:
-    '株式会社Not a Square（NaS）は、AI開発者が現場に入り込み「一番ムダな業務」から自動化するFDE企業です。京阪神および関西一円に対応します。',
-  foundingDate: '2026-08-13',
+    '株式会社Not a Square（NaS）は、AIエンジニアが現場に寄り添い、AIの選定・導入から運用・定着まで伴走する「NaS AI」を提供しています。京阪神および関西一円に対応します。',
+  foundingDate: '2026-08',
 
   representative: {
     name: '酒井涼雅',
     jobTitle: '代表取締役',
   },
-  founders: [
-    { name: '酒井涼雅', jobTitle: '共同創業者 / CEO' },
-    { name: '御幡アルバート武嗣', jobTitle: '共同創業者 / COO' },
-    { name: '佐伯勇樹', jobTitle: '共同創業者 / CCO' },
+  members: [
+    { name: '酒井涼雅', jobTitle: 'CEO' },
+    { name: '御幡アルバート武嗣', jobTitle: 'COO' },
+    { name: '佐伯勇樹', jobTitle: 'CMO' },
   ],
 
   email: 'info@notasquare.co.jp',

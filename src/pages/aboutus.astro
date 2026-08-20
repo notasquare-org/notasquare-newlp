@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { company } from '../data/company';
 const title = `Not a Square｜会社概要`;
-const description = `株式会社Not a Square（NaS）の会社概要、理念、共同創業者をご紹介します。`;
+const description = `株式会社Not a Square（NaS）の会社概要、理念、メンバーをご紹介します。`;
 
 const members = [
   {
@@ -25,12 +25,12 @@ const members = [
   },
   {
     name: '佐伯勇樹',
-    role: 'CCO',
+    role: 'CMO',
     photo: '/uploads/member-saeki.webp',
     before:
-      'AIコンサルティング会社でインターンとして働き、進化を続けるAIをより広い範囲へ届けるため、自身の影響力を高められる新たな環境で挑戦したいと考えていました。大学のゼミのLINEグループでNot a Squareのメンバー募集を知り、自分の課題意識と重なると感じてすぐに代表の酒井へ連絡し、NaSに合流しました。',
+      'AIコンサルティング会社勤務後、進化を続けるAIをより広い範囲へ届けるため、自身の影響力を高められる新たな環境で挑戦したいと考え、NaSに合流しました。',
     atNas:
-      '共同創業者／CCOとして、営業・マーケティングを中心に担当します。顧客セグメント設計、顧客開拓、インタビュー、課題に応じた方針提案、営業予測まで、顧客との接点づくりを幅広く担当。顧客の声をサービスやコンテンツへ還元し、NaSと関西の中小企業をつなぐ、継続的な事業成長の仕組みをつくります。',
+      'CMOとして、営業・マーケティングを中心に担当します。顧客セグメント設計、顧客開拓、インタビュー、課題に応じた方針提案、営業予測まで、顧客との接点づくりを幅広く担当。顧客の声をサービスやコンテンツへ還元し、NaSと関西の中小企業をつなぐ、継続的な事業成長の仕組みをつくります。',
   },
 ];
 ---
@@ -71,10 +71,7 @@ const members = [
       </div>
       <div class="mvv-card">
         <div class="mvv-en">VISION</div>
-        <h2 class="mvv-title vision-title">
-          <span class="vision-desktop-copy">2030年、日本で一番信頼される<br>FDE企業になり、すべての関わる人が<br>自己実現できる社会を創る。</span>
-          <span class="vision-mobile-copy">2030年、日本で一番信頼されるFDE企業になり、<br>すべての関わる人が自己実現できる社会を創る。</span>
-        </h2>
+        <h2 class="mvv-title vision-title">すべての関わる人が<br>自己実現できる社会を創る。</h2>
       </div>
     </div>
   </div>
@@ -95,21 +92,21 @@ const members = [
           <div class="mvv-vrow">
             <span class="mvv-vno">01</span>
             <div class="mvv-vmain">
-              <div class="mvv-vtitle">現場で証明しろ</div>
+              <div class="mvv-vtitle">現場で証明する</div>
               <p class="mvv-vdesc">提案書ではなく、顧客の隣で動くことで価値を示す。机上の空論ではなく、現場で動く仕組みと数字で成果を証明します。</p>
             </div>
           </div>
           <div class="mvv-vrow">
             <span class="mvv-vno">02</span>
             <div class="mvv-vmain">
-              <div class="mvv-vtitle">信頼を雪だるまにしろ</div>
+              <div class="mvv-vtitle">信頼構築を何よりも大切にする</div>
               <p class="mvv-vdesc">一つの成果が次の信頼を呼ぶ。約束を超える成果だけが信頼を複利で増やす。</p>
             </div>
           </div>
           <div class="mvv-vrow">
             <span class="mvv-vno">03</span>
             <div class="mvv-vmain">
-              <div class="mvv-vtitle">枠に収まるな（Not a Square）</div>
+              <div class="mvv-vtitle">枠に収まらない（Not a Square）</div>
               <p class="mvv-vdesc">既存の常識・業界の枠・年齢の壁、すべてを超えて挑戦する。社名「Not a Square」の語源そのものです。</p>
             </div>
           </div>
@@ -131,7 +128,7 @@ const members = [
       .mvv-left .mvv-stage.reveal,.mvv-right .mvv-stage.reveal{transform:none}
     }
     /* 背景の大きな英字＋ロゴ。カードの上端にだけ重なり、文字全体は読めるよう配置 */
-    .mvv-word{display:flex;width:100%;align-items:center;gap:18px;user-select:none;pointer-events:none;font-family:var(--font-display);font-weight:800;font-size:clamp(56px,8.5vw,112px);line-height:1;letter-spacing:.01em;color:#ecebe7}
+    .mvv-word{display:flex;width:100%;align-items:center;gap:18px;user-select:none;pointer-events:none;font-family:var(--font-display);font-weight:800;font-size:clamp(56px,8.5vw,112px);line-height:1;letter-spacing:.01em;color:var(--color-primary)}
     .mvv-left .mvv-word{justify-content:flex-start;margin-left:-48px}
     .mvv-right .mvv-word{justify-content:flex-end;margin-right:-48px}
     .mvv-mark{height:clamp(34px,4.6vw,54px);width:auto;flex:none}
@@ -139,30 +136,25 @@ const members = [
     .mvv-card{background:transparent;border:none;border-radius:0;padding:0;max-width:760px;box-shadow:none}
     .mvv-left .mvv-card{margin:clamp(14px,2.4vw,28px) 0 0 auto}
     .mvv-right .mvv-card{margin:clamp(14px,2.4vw,28px) auto 0 0;text-align:right}
-    .mvv-en{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.18em;color:#8fc0c2;margin-bottom:18px}
-    .mvv-title{font-size:clamp(24px,3.4vw,33px);font-weight:700;color:#2a2f37;line-height:1.5;letter-spacing:.01em;margin:0 0 30px}
-    .vision-mobile-copy{display:none}
-    .mvv-body p{font-size:15px;color:#3A3F47;line-height:2.1;margin:0 0 14px}
+    .mvv-en{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--color-accent);margin-bottom:18px}
+    .mvv-title{font-size:clamp(24px,3.4vw,33px);font-weight:700;color:var(--color-primary);line-height:1.5;letter-spacing:.01em;margin:0 0 30px}
+    .mvv-body p{font-size:15px;color:var(--color-text-secondary);line-height:2.1;margin:0 0 14px}
     .mvv-body p:last-child{margin-bottom:0}
     /* VALUE：カード内の3項目リスト */
     .mvv-vlist{display:flex;flex-direction:column;gap:28px}
     .mvv-vrow{display:flex;gap:20px;align-items:flex-start;text-align:left}
-    .mvv-vno{flex:none;font-family:var(--font-display);font-size:24px;font-weight:800;color:#8fc0c2;line-height:1.5;min-width:36px}
-    .mvv-vtitle{font-size:18px;font-weight:700;color:#2a2f37;margin-bottom:9px}
-    .mvv-vdesc{font-size:14px;color:#3A3F47;line-height:1.95;margin:0}
+    .mvv-vno{flex:none;font-family:var(--font-display);font-size:24px;font-weight:800;color:var(--color-accent);line-height:1.5;min-width:36px}
+    .mvv-vtitle{font-size:18px;font-weight:700;color:var(--color-primary);margin-bottom:9px}
+    .mvv-vdesc{font-size:14px;color:var(--color-text-secondary);line-height:1.95;margin:0}
     @media(max-width:760px){
       .mvv-stage{min-height:0}
-      .mvv-word{margin-left:0 !important;margin-right:0 !important;opacity:.9}
+      .mvv-word{margin-left:0 !important;margin-right:0 !important;font-size:clamp(42px,13vw,64px);gap:10px}
       .mvv-left .mvv-word{justify-content:flex-start !important}
       .mvv-right .mvv-word{justify-content:flex-end !important}
       .mvv-left .mvv-card{margin:14px 0 0;text-align:left}
       .mvv-right .mvv-card{margin:14px 0 0;text-align:right}
     }
-    @media(max-width:520px){
-      .vision-desktop-copy{display:none}
-      .vision-mobile-copy{display:block;white-space:nowrap}
-      .mvv-title{font-size:clamp(11px,calc((100vw - 40px) * .04),15px);letter-spacing:0;line-height:1.8}
-    }
+    @media(max-width:520px){.mvv-title{font-size:clamp(20px,6vw,26px);letter-spacing:0;line-height:1.7}}
   </style>
 </section>
 
@@ -170,13 +162,13 @@ const members = [
 <section class="sec sec-light">
   <div class="container">
     <div class="sec-head reveal">
-      <div class="sec-en sm">CO-FOUNDERS</div>
-      <div class="sec-jp">共同創業者</div>
+      <div class="sec-en sm">MEMBER</div>
+      <div class="sec-jp">メンバー</div>
       <div class="sec-rule"></div>
     </div>
     <div class="member-switcher" data-member-switcher>
       <div class="member-carousel reveal">
-        <div class="member-carousel-controls" aria-label="共同創業者カードのスライド操作">
+        <div class="member-carousel-controls" aria-label="メンバーカードのスライド操作">
           <button class="member-carousel-button" type="button" aria-label="前のメンバーを表示" data-member-prev>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
           </button>
@@ -184,7 +176,7 @@ const members = [
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
           </button>
         </div>
-        <div class="member-tabs" aria-label="共同創業者一覧" data-member-track>
+        <div class="member-tabs" aria-label="メンバー一覧" data-member-track>
           {members.map((member, index) => (
             <button
               class="member-tab"
@@ -251,43 +243,43 @@ const members = [
   .member-switcher{max-width:960px;margin:0 auto}
   .member-carousel{position:relative}
   .member-carousel-controls{display:flex;justify-content:flex-end;gap:10px;margin-bottom:18px}
-  .member-carousel-button{appearance:none;display:grid;width:44px;height:44px;place-items:center;border:1px solid #cad5e3;border-radius:50%;background:#fff;color:#14233F;cursor:pointer;transition:background .25s,border-color .25s,color .25s,opacity .25s}
-  .member-carousel-button:hover:not(:disabled){border-color:#5b9da0;background:#5b9da0;color:#fff}
-  .member-carousel-button:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:3px}
+  .member-carousel-button{appearance:none;display:grid;width:44px;height:44px;place-items:center;border:1px solid var(--color-border);border-radius:50%;background:#fff;color:var(--color-primary);cursor:pointer;transition:background .25s,border-color .25s,color .25s,opacity .25s}
+  .member-carousel-button:hover:not(:disabled){border-color:var(--color-primary);background:var(--color-primary);color:#fff}
+  .member-carousel-button:focus-visible{outline:3px solid rgba(111,145,178,.5);outline-offset:3px}
   .member-carousel-button:disabled{opacity:.3;cursor:default}
   .member-carousel-button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
   .member-tabs{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 56px)/3);gap:28px;align-items:start;overflow-x:auto;overscroll-behavior-inline:contain;scroll-behavior:smooth;scroll-snap-type:inline mandatory;scrollbar-width:none;padding:6px 2px 24px}
   .member-tabs::-webkit-scrollbar{display:none}
   .member-tab{appearance:none;display:block;width:100%;padding:0;border:2px solid transparent;border-radius:18px;background:transparent;color:inherit;text-align:left;cursor:pointer;scroll-snap-align:start;transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
   .member-tab:hover{transform:translateY(-5px)}
-  .member-tab:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:4px}
-  .member-tab[aria-expanded="true"]{transform:translateY(-5px);border-color:#8fc0c2;box-shadow:0 16px 34px rgba(16,32,63,.15)}
-  .member-card{display:block;position:relative;border-radius:15px;overflow:hidden;aspect-ratio:4/5;background:linear-gradient(160deg,#F4F7FE,#dbe5f4)}
+  .member-tab:focus-visible{outline:3px solid rgba(111,145,178,.5);outline-offset:4px}
+  .member-tab[aria-expanded="true"]{transform:translateY(-5px);border-color:var(--color-accent);box-shadow:0 16px 34px rgba(20,49,86,.15)}
+  .member-card{display:block;position:relative;border-radius:15px;overflow:hidden;aspect-ratio:4/5;background:var(--color-surface)}
   .member-card img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
   .member-tab:hover .member-card img,.member-tab[aria-expanded="true"] .member-card img{transform:scale(1.025)}
-  .member-overlay{position:absolute;left:0;right:0;bottom:0;display:block;padding:64px 20px 20px;background:linear-gradient(180deg,rgba(16,32,63,0),rgba(16,32,63,.84));color:#fff}
-  .member-role{display:block;font-family:var(--font-display);font-size:12px;font-weight:800;letter-spacing:.14em;color:#8ed2ef;margin-bottom:7px;line-height:1.4}
+  .member-overlay{position:absolute;left:0;right:0;bottom:0;display:block;padding:64px 20px 20px;background:linear-gradient(180deg,rgba(20,49,86,0),rgba(20,49,86,.9));color:#fff}
+  .member-role{display:block;font-family:var(--font-display);font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--color-accent);margin-bottom:7px;line-height:1.4}
   .member-name{display:block;font-size:20px;font-weight:700;line-height:1.3}
-  .member-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:24px;background:rgba(10,22,43,.7);backdrop-filter:blur(8px);animation:member-modal-in .25s ease-out}
+  .member-modal{position:fixed;inset:0;z-index:3000;display:grid;place-items:center;padding:24px;background:rgba(20,49,86,.76);backdrop-filter:blur(8px);animation:member-modal-in .25s ease-out}
   .member-modal[hidden]{display:none}
-  .member-modal-dialog{position:relative;width:min(1120px,100%);max-height:calc(100dvh - 48px);overflow:auto;border-radius:22px;background:#fff;box-shadow:0 30px 90px rgba(3,15,34,.3);outline:none}
-  .member-modal-close{appearance:none;position:absolute;z-index:2;top:16px;right:16px;display:grid;width:44px;height:44px;place-items:center;border:1px solid #d7dee8;border-radius:50%;background:rgba(255,255,255,.94);color:#14233F;cursor:pointer;transition:background .2s,color .2s,transform .2s}
-  .member-modal-close:hover{background:#14233F;color:#fff;transform:rotate(4deg)}
-  .member-modal-close:focus-visible{outline:3px solid rgba(50,123,180,.35);outline-offset:3px}
+  .member-modal-dialog{position:relative;width:min(1120px,100%);max-height:calc(100dvh - 48px);overflow:auto;border-radius:22px;background:#fff;box-shadow:0 30px 90px rgba(20,49,86,.3);outline:none}
+  .member-modal-close{appearance:none;position:absolute;z-index:2;top:16px;right:16px;display:grid;width:44px;height:44px;place-items:center;border:1px solid var(--color-border);border-radius:50%;background:rgba(255,255,255,.94);color:var(--color-primary);cursor:pointer;transition:background .2s,color .2s,transform .2s}
+  .member-modal-close:hover{background:var(--color-primary);color:#fff;transform:rotate(4deg)}
+  .member-modal-close:focus-visible{outline:3px solid rgba(111,145,178,.5);outline-offset:3px}
   .member-modal-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
   .member-panels{margin:0}
   .member-panel{grid-template-columns:minmax(280px,380px) minmax(0,1fr);gap:clamp(32px,5vw,62px);align-items:center;padding:clamp(30px,4vw,52px);border-radius:22px;background:#fff;animation:member-panel-in .4s cubic-bezier(.2,.7,.2,1)}
   .member-panel:not([hidden]){display:grid}
   .member-panel[hidden]{display:none}
-  .member-detail-photo{overflow:hidden;aspect-ratio:1/1;border-radius:16px;background:linear-gradient(160deg,#F4F7FE,#dbe5f4)}
+  .member-detail-photo{overflow:hidden;aspect-ratio:1/1;border-radius:16px;background:var(--color-surface)}
   .member-detail-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
   .member-copy{min-width:0}
   .member-detail-heading{margin-bottom:28px}
-  .member-detail-heading span{display:block;font-family:var(--font-display);font-size:13px;font-weight:800;letter-spacing:.16em;color:#5b9da0;margin-bottom:7px}
-  .member-detail-heading h2{font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.35;color:#14233F;margin:0}
+  .member-detail-heading span{display:block;font-family:var(--font-display);font-size:13px;font-weight:800;letter-spacing:.16em;color:var(--color-accent);margin-bottom:7px}
+  .member-detail-heading h2{font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.35;color:var(--color-primary);margin:0}
   .member-copy-section+.member-copy-section{margin-top:26px}
-  .member-copy h3{font-size:15px;font-weight:700;color:#14233F;margin:0 0 10px;padding-left:11px;border-left:3px solid #8fc0c2}
-  .member-copy p{font-size:14px;color:#3c4658;line-height:2;margin:0}
+  .member-copy h3{font-size:15px;font-weight:700;color:var(--color-primary);margin:0 0 10px;padding-left:11px;border-left:3px solid var(--color-accent)}
+  .member-copy p{font-size:14px;color:var(--color-text-secondary);line-height:2;margin:0}
   body.member-modal-open{overflow:hidden}
   @keyframes member-modal-in{from{opacity:0}to{opacity:1}}
   @keyframes member-panel-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -417,20 +409,14 @@ const members = [
       <div class="sec-jp">概要</div>
       <div class="sec-rule"></div>
     </div>
-    <div class="reveal" style="max-width:820px;margin:0 auto;border-top:2px solid #14233F">
+    <div class="reveal" style="max-width:820px;margin:0 auto;border-top:2px solid var(--color-primary)">
       <dl class="company-overview">
-        <div><dt>正式法人名</dt><dd>{company.name}</dd></div>
-        <div><dt>英語表記</dt><dd>{company.englishName}</dd></div>
-        <div><dt>設立</dt><dd>2026年8月13日</dd></div>
+        <div><dt>名称</dt><dd>{company.name} （{company.englishName}）</dd></div>
+        <div><dt>設立</dt><dd>2026年8月</dd></div>
         <div><dt>所在地</dt><dd>〒{company.address.postalCode}<br>{company.address.addressRegion}{company.address.addressLocality}{company.address.streetAddress}</dd></div>
         <div><dt>代表者</dt><dd>{company.representative.jobTitle}　{company.representative.name}</dd></div>
-        <div><dt>共同創業者</dt><dd>{company.founders.map((founder) => founder.name).join('、')}</dd></div>
         <div><dt>資本金</dt><dd>{company.capital}</dd></div>
-        <div><dt>事業内容</dt><dd>FDEによる業務改善（業務フロー監査・AI実装・伴走保守）<br>法人向けAIセミナーの企画・開催</dd></div>
-        <div><dt>法人番号</dt><dd>{company.corporateNumber ?? company.corporateNumberStatus}</dd></div>
-        <div><dt>適格請求書発行事業者<br>登録番号</dt><dd>{company.invoiceRegistrationNumber ?? company.invoiceRegistrationStatus}</dd></div>
-        <div><dt>メールアドレス</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
-        <div><dt>電話番号</dt><dd><a href={`tel:${company.telephone.replaceAll('-', '')}`}>{company.telephone}</a></dd></div>
+        <div><dt>事業内容</dt><dd>AI導入支援事業<br>DX / 業務効率化支援事業<br>法人向けAIセミナー事業</dd></div>
       </dl>
     </div>
   </div>
@@ -438,10 +424,10 @@ const members = [
 
 <style is:inline>
   .company-overview{margin:0}
-  .company-overview>div{display:flex;border-bottom:1px solid #e3e5e9}
-  .company-overview dt{width:200px;flex:none;background:#f7f9fc;padding:18px 24px;font-weight:700;font-size:14px}
-  .company-overview dd{margin:0;padding:18px 24px;font-size:14px;color:#3c4658;line-height:1.8}
-  .company-overview a{color:#14233F;text-decoration:underline;text-underline-offset:3px}
+  .company-overview>div{display:flex;border-bottom:1px solid var(--color-border)}
+  .company-overview dt{width:200px;flex:none;background:var(--color-surface);padding:18px 24px;font-weight:700;font-size:14px;color:var(--color-primary)}
+  .company-overview dd{margin:0;padding:18px 24px;font-size:14px;color:var(--color-text-secondary);line-height:1.8}
+  .company-overview a{color:var(--color-primary);text-decoration:underline;text-underline-offset:3px}
   @media(max-width:640px){
     .company-overview>div{display:block}
     .company-overview dt{width:auto;padding:13px 16px}

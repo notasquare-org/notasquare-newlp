@@ -9,13 +9,13 @@ const news = [
     date: '2026.08.13',
     cat: '会社情報',
     title: '株式会社Not a Squareを設立しました',
-    body: '2026年8月13日、株式会社Not a Squareを設立しました。NaSは、関西の中小企業に寄り添い、現場の課題をAIの実装と運用で解決するFDE企業として、より多くの人と企業の可能性を広げてまいります。',
+    body: '2026年8月13日、株式会社Not a Squareを設立しました。NaSは、関西の中小企業に寄り添い、現場の課題をAIの実装と運用で解決する企業として、より多くの人と企業の可能性を広げてまいります。',
   },
   {
     date: '2026.06.22',
     cat: 'サービス',
     title: 'サイトを公開しました',
-    body: 'Not a Square（NaS）のサイトを公開しました。FDE（Forward Deployed Engineer）として、現場に入り込み「一番ムダな業務」から自動化する事業内容をご紹介しています。',
+    body: 'Not a Square（NaS）のサイトを公開しました。AIエンジニアが現場に入り込み「一番ムダな業務」から自動化するNaS AIの事業内容をご紹介しています。',
   },
 ];
 
@@ -53,7 +53,7 @@ const categories = ['すべて', ...Array.from(new Set(news.map((n) => n.cat)))]
           <div class="acc-item reveal" data-cat={item.cat}>
             <button class="acc-q" type="button" aria-expanded="false">
               <span style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-                <span style="font-size:12.5px;color:#6B7079;font-weight:500">{item.date}</span>
+                <span style="font-size:12.5px;color:var(--color-text-secondary);font-weight:500">{item.date}</span>
                 <span class="tag-pill" style="font-size:10.5px;padding:2px 9px">{item.cat}</span>
                 {item.title}
               </span>

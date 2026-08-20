@@ -56,16 +56,11 @@ const orgJsonLd = {
     areaServed: 'JP',
     availableLanguage: 'Japanese',
   },
-  founder: company.founders.map((founder) => ({
+  employee: company.members.map((member) => ({
     '@type': 'Person',
-    name: founder.name,
-    jobTitle: founder.jobTitle,
+    name: member.name,
+    jobTitle: member.jobTitle,
   })),
-  employee: {
-    '@type': 'Person',
-    name: company.representative.name,
-    jobTitle: company.representative.jobTitle,
-  },
   ...(orgIdentifiers.length ? { identifier: orgIdentifiers } : {}),
 };
 
@@ -154,7 +149,7 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=20260710b">
+  <link rel="stylesheet" href="/assets/style.css?v=20260821e">
 </head>
 <body>
 
