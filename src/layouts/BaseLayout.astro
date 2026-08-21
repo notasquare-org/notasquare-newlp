@@ -10,7 +10,7 @@ import { company } from '../data/company';
 // faq       … 渡すと FAQPage 構造化データを出力（Q&Aのあるページのみ）
 // breadcrumb… [{ name, path? }] を渡すと BreadcrumbList を出力（ホームは自動で先頭に付与）
 // schema    … 任意の JSON-LD オブジェクト（配列可）をそのまま追加出力（Article / DefinedTerm など）
-const { title, description, active, ogImage = '/uploads/ogp.png', faq, breadcrumb, schema } = Astro.props;
+const { title, description, active, ogImage = '/uploads/ogp-v2.png', faq, breadcrumb, schema } = Astro.props;
 
 // canonical / OGP 用の絶対URLを組み立てる。
 // Astro.site（astro.config の site）を基準に、現在ページのパスで正規URLを作る。
