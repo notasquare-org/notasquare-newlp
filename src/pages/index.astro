@@ -43,13 +43,14 @@ const reasons = [
   { num: '04', title: 'AI導入後も継続支援',         desc: 'システムのアップデートや活用上の疑問に対応し、継続的な運用・定着を支援します。',                 img: '/uploads/reason-04.png' },
 ];
 
-// SERVICE（事業内容）の2項目。short は円（ベン図）に入れる短いラベル。
+// SERVICE（事業内容）の3事業。short は円（ベン図）に入れる短いラベル。
 const services = [
-  { title: 'NaS AI',             en: 'NaS AI',     short: 'AI導入支援', anchor: '/service#service-01', desc: '現場に入り込み、一番ムダな業務から自動化。AIの選定・導入から運用・定着まで伴走します。' },
-  { title: 'AIセミナー',         en: 'AI seminer', short: '法人向けAIセミナー', anchor: '/service#service-02', desc: 'AI活用を学べるセミナーを企画・開催（名称は準備中）。経営者・現場担当者に、明日から使える基礎と実践をお届けします。' },
+  { title: 'NaS AI',      en: 'NaS AI',      short: 'AI導入支援',         anchor: '/service#service-01' },
+  { title: 'NaS Advisor', en: 'NaS Advisor', short: 'AI顧問',             anchor: '/service#service-02' },
+  { title: 'AIセミナー',  en: 'AIセミナー',  short: '法人向けAIセミナー', anchor: '/service#service-03' },
 ];
-// 円の配置（左・右の2つ）。
-const vennPos = ['pos-left', 'pos-right'];
+// 円の配置（主力・関連・補完の3つ）。
+const vennPos = ['pos-main', 'pos-advisor', 'pos-seminar'];
 
 // よくあるご質問（Q&A）。
 // ここを唯一の情報源にして、下のアコーディオン表示と FAQPage 構造化データ（JSON-LD）の
@@ -173,28 +174,49 @@ const faqs = [
 
   <style is:inline>
     .service-layout{display:flex;justify-content:center;max-width:980px;margin:0 auto}
-    /* ----- ベン図（クリック可能な2つの円） ----- */
-    .service-venn{position:relative;width:100%;max-width:520px;aspect-ratio:520/300;margin:0 auto}
-    .venn-circle{--x:0;position:absolute;top:50%;aspect-ratio:1/1;border-radius:50%;border:1.5px solid rgba(20,49,86,.32);background:rgba(255,255,255,.62);display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;cursor:pointer;will-change:transform;transform:translate(var(--x),-50%);transition:border-color .35s,background .35s,box-shadow .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
-    /* 配置（左・右の2つを重ねる）。NaS AI（左）をメイン事業として大きく強調、AIセミナー（右）は小さく */
-    .venn-circle.pos-left{left:0;width:68%;z-index:2;border-color:rgba(20,49,86,.5);background:rgba(255,255,255,.74);box-shadow:0 14px 36px rgba(20,49,86,.14)}
-    .venn-circle.pos-right{right:0;width:46%}
-    /* ホバー／フォーカス：揺れを止め、濃紺で塗り、拡大し強調 */
-    .venn-circle:hover,.venn-circle:focus-visible{animation:none;border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:translate(0,-50%) scale(1.07);z-index:3;outline:none}
-    .venn-circle:hover .venn-en,.venn-circle:focus-visible .venn-en{color:#fff}
-    .venn-circle:hover .venn-jp,.venn-circle:focus-visible .venn-jp{color:var(--color-accent)}
+    /* ----- ベン図（クリック可能な3つの円） ----- */
+    .service-venn{position:relative;width:100%;max-width:580px;aspect-ratio:580/410;margin:0 auto}
+    .venn-circle{position:absolute;aspect-ratio:1/1;border-radius:50%;border:1.5px solid rgba(20,49,86,.32);background:rgba(255,255,255,.62);display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;cursor:pointer;will-change:transform;transition:border-color .35s,background .35s,box-shadow .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
+    /* NaS AIを主力として最大にし、Advisorを近接、セミナーを補完的に配置 */
+    .venn-circle.pos-main{left:0;top:10%;width:62%;z-index:2;border-color:rgba(20,49,86,.5);background:rgba(255,255,255,.78);box-shadow:0 14px 36px rgba(20,49,86,.14)}
+    .venn-circle.pos-advisor{right:2%;top:2%;width:48%;z-index:1;background:rgba(236,242,248,.76)}
+    .venn-circle.pos-seminar{right:13%;bottom:0;width:39%;z-index:2;background:rgba(255,255,255,.72)}
+    /* ホバー／フォーカス：濃紺で塗り、拡大して選択対象を明確にする */
+    .venn-circle:focus-visible{border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:scale(1.06);z-index:4;outline:3px solid var(--color-accent);outline-offset:4px}
+    .venn-circle:focus-visible .venn-en{color:#fff}
+    .venn-circle:focus-visible .venn-jp{color:var(--color-accent)}
+    @media(hover:hover){
+      .venn-circle:hover{border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:scale(1.06);z-index:4}
+      .venn-circle:hover .venn-en{color:#fff}
+      .venn-circle:hover .venn-jp{color:var(--color-accent)}
+    }
+    .venn-circle:active{transform:scale(.98)}
     .venn-inner{padding:0 8px;transition:transform .35s}
-    .venn-circle.pos-left .venn-inner{transform:translateX(-20%)}
-    .venn-circle.pos-right .venn-inner{transform:translateX(24%)}
+    .venn-circle.pos-main .venn-inner{transform:translate(-18%,-4%)}
+    .venn-circle.pos-advisor .venn-inner{transform:translate(19%,-16%)}
+    .venn-circle.pos-seminar .venn-inner{transform:translate(12%,20%)}
     .venn-en{font-size:24px;font-weight:800;color:var(--color-primary);letter-spacing:.01em;line-height:1.1;transition:color .35s}
     .venn-jp{font-size:13px;font-weight:600;color:var(--color-text-secondary);margin-top:7px;transition:color .35s}
+    .venn-circle.pos-advisor .venn-en{font-size:19px}
     /* 小さい円（AIセミナー）はラベルも控えめに */
-    .venn-circle.pos-right .venn-en{font-size:18px}
-    .venn-circle.pos-right .venn-jp{font-size:11px;margin-top:5px}
+    .venn-circle.pos-seminar .venn-en{font-size:16px}
+    .venn-circle.pos-seminar .venn-jp{font-size:10.5px;margin-top:5px}
     @media(max-width:860px){
-      .service-venn{max-width:420px}
+      .service-venn{max-width:480px}
       .venn-en{font-size:20px}
-      .venn-circle.pos-right .venn-en{font-size:16px}
+      .venn-circle.pos-advisor .venn-en{font-size:17px}
+      .venn-circle.pos-seminar .venn-en{font-size:14px}
+    }
+    @media(max-width:420px){
+      .service-venn{aspect-ratio:280/220}
+      .venn-circle.pos-main{top:12%;width:64%}
+      .venn-circle.pos-advisor{right:0;width:48%}
+      .venn-circle.pos-seminar{right:10%;width:40%}
+      .venn-en{font-size:18px}
+      .venn-jp{font-size:11px;margin-top:5px}
+      .venn-circle.pos-advisor .venn-en{font-size:15px}
+      .venn-circle.pos-seminar .venn-en{font-size:12px}
+      .venn-circle.pos-seminar .venn-jp{font-size:9px;line-height:1.35}
     }
   </style>
 </section>
@@ -268,7 +290,6 @@ const faqs = [
           <div class="flow-desc">ヒアリングをもとに、AI活用の可能性を無料で診断します。</div>
         </div>
         <div class="flow-paid">
-          <div class="flow-paid-label"><span>02〜05</span>月額運用 5万円〜</div>
           <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)" data-delay="1">
             <div class="flow-bar"><span class="flow-num">02</span><span class="flow-title">初期診断</span></div>
             <div class="flow-desc">業務フローや課題を把握し、AI活用の余地を整理します。</div>
@@ -301,9 +322,7 @@ const faqs = [
     .flow-title{font-size:21px;font-weight:700;letter-spacing:.04em}
     .flow-desc{flex:1;min-width:0;background:var(--t);display:flex;align-items:center;padding:16px 26px 16px 50px;font-size:13.5px;line-height:1.85;color:var(--color-primary)}
     .flow-free-label{margin-left:auto;flex:none;border:1px solid var(--color-accent);border-radius:999px;background:#fff;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--color-primary)}
-    .flow-paid{position:relative;display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--color-accent);border-radius:10px;padding:36px 10px 10px;background:rgba(255,255,255,.6)}
-    .flow-paid-label{position:absolute;top:-1px;right:-1px;display:flex;align-items:center;gap:12px;border-radius:0 10px 0 10px;background:var(--color-primary);padding:8px 18px;color:#fff;font-size:14px;font-weight:800;letter-spacing:.04em;box-shadow:0 6px 16px rgba(20,49,86,.16)}
-    .flow-paid-label span{font-size:11px;color:var(--color-accent);letter-spacing:.08em}
+    .flow-paid{position:relative;display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--color-accent);border-radius:10px;padding:10px;background:rgba(255,255,255,.6)}
     @media(max-width:760px){
       .flow-diagram{flex-direction:column;gap:8px}
       .flow-axis{width:auto;height:46px;flex-direction:row;border-radius:6px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%);padding:0 24px 0 18px;justify-content:flex-start}
@@ -312,9 +331,7 @@ const faqs = [
       .flow-bar{flex:none;margin-right:0;clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),50% 100%,0 calc(100% - 16px));padding:16px 18px 26px;z-index:2}
       .flow-desc{padding:22px 18px 16px;margin-top:-10px}
       .flow-title{font-size:19px}
-      .flow-paid{padding:52px 8px 8px;gap:8px;border-radius:9px}
-      .flow-paid-label{left:-1px;right:-1px;top:-1px;justify-content:center;border-radius:9px 9px 0 0;padding:11px 14px;font-size:13px}
-      .flow-paid-label span{font-size:12px}
+      .flow-paid{padding:8px;gap:8px;border-radius:9px}
       .flow-free-label{margin-right:18px}
     }
   </style>

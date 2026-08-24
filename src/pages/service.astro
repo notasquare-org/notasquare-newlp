@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = `NaS AI・法人向けAIセミナー｜Not a Square`;
-const description = `株式会社Not a Square（NaS）の事業内容。AIの選定・導入から運用・定着まで伴走するNaS AIと、法人向けAIセミナーをご紹介します。`;
+const title = `NaS AI・NaS Advisor・法人向けAIセミナー｜Not a Square`;
+const description = `株式会社Not a Square（NaS）の事業内容。AIの導入・実装から運用・定着まで伴走するNaS AI、法人向けAI顧問サービスのNaS Advisor、法人向けAIセミナーをご紹介します。`;
 ---
 
 <BaseLayout title={title} description={description} active="service" breadcrumb={[{ name: '事業内容' }]}>
@@ -33,7 +33,9 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの選
         </ul>
         <a href="/#flow" class="btn btn-ghost" style="margin-top:26px">導入フローを見る →</a>
       </div>
-      <div class="reveal"><img src="/uploads/service-01.png" alt="NaS AIによるAI導入支援" style="width:100%;height:320px;object-fit:cover;border-radius:8px"></div>
+      <div class="reveal service-media">
+        <img class="service-image" src="/uploads/service-01.png" alt="NaS AIによるAI導入支援">
+      </div>
     </div>
   </div>
 </section>
@@ -44,6 +46,29 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの選
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;direction:rtl" class="grid-2">
       <div class="reveal-left" style="direction:ltr">
         <span class="tag-pill">02</span>
+        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Advisor</h2>
+        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 18px">AIについて継続的に相談したい企業に向けた、法人向けのAI顧問サービスです。月1回〜のオンライン相談とチャット相談を基本に、AI活用に関する疑問や最新情報、業務への取り入れ方について継続的にサポートします。支援内容は、お客様の課題や状況に応じて柔軟に調整します。</p>
+        <div class="service-price">月額5万円〜</div>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>月1回のオンライン相談</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>回数制限なしのチャット相談</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新AI情報の共有</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>課題に応じた活用アドバイス</li>
+        </ul>
+      </div>
+      <div class="reveal service-media" style="direction:ltr">
+        <img class="service-image" src="/uploads/service-03.png" alt="NaS Advisorによる法人向けAI顧問サービス">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE 03 ===== -->
+<section id="service-03" class="sec" style="scroll-margin-top:90px">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center" class="grid-2">
+      <div class="reveal-left">
+        <span class="tag-pill">03</span>
         <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">法人向けAIセミナー</h2>
         <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">AI活用を学べるセミナーを企画・開催します。経営者や現場担当者に向けて、専門用語に頼らず「明日から使える」AI活用の基礎から実践までを、事例を交えてお届けします。</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
@@ -53,36 +78,39 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの選
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新動向のキャッチアップ</li>
         </ul>
       </div>
-      <div class="reveal service-seminar-media" style="direction:ltr">
-        <img class="service-seminar-image" src="/uploads/service-02.png" alt="AIセミナー">
+      <div class="reveal service-media">
+        <img class="service-image" src="/uploads/service-02.png" alt="法人向けAIセミナー">
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .service-seminar-media {
-    height: 320px;
+  .service-media {
+    width: 100%;
     overflow: hidden;
     border-radius: 8px;
   }
 
-  .service-seminar-image {
+  .service-image {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 80% 50%;
-    transform: scale(1.12);
-    transform-origin: 80% 50%;
+    max-width: 100%;
+    height: auto;
   }
 
-  @media (max-width: 768px) {
-    .service-seminar-image {
-      object-position: 72% 50%;
-      transform: none;
-    }
+  .service-price {
+    width: fit-content;
+    margin: 0 0 22px;
+    padding: 7px 14px;
+    border: 1px solid rgba(20,49,86,.22);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 700;
   }
+
 </style>
 
 <section class="cta-band">
