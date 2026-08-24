@@ -46,11 +46,11 @@ const reasons = [
 // SERVICE（事業内容）の3事業。short は円（ベン図）に入れる短いラベル。
 const services = [
   { title: 'NaS AI',      en: 'NaS AI',      short: 'AI導入支援',         anchor: '/service#service-01' },
-  { title: 'NaS Advisor', en: 'NaS Advisor', short: 'AI顧問',             anchor: '/service#service-02' },
+  { title: 'NaS Advisory', en: 'NaS Advisory', short: 'AI顧問',             anchor: '/service#service-02' },
   { title: 'AIセミナー',  en: 'AIセミナー',  short: '法人向けAIセミナー', anchor: '/service#service-03' },
 ];
 // 円の配置（主力・関連・補完の3つ）。
-const vennPos = ['pos-main', 'pos-advisor', 'pos-seminar'];
+const vennPos = ['pos-main', 'pos-advisory', 'pos-seminar'];
 
 // よくあるご質問（Q&A）。
 // ここを唯一の情報源にして、下のアコーディオン表示と FAQPage 構造化データ（JSON-LD）の
@@ -177,9 +177,9 @@ const faqs = [
     /* ----- ベン図（クリック可能な3つの円） ----- */
     .service-venn{position:relative;width:100%;max-width:580px;aspect-ratio:580/410;margin:0 auto}
     .venn-circle{position:absolute;aspect-ratio:1/1;border-radius:50%;border:1.5px solid rgba(20,49,86,.32);background:rgba(255,255,255,.62);display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;cursor:pointer;will-change:transform;transition:border-color .35s,background .35s,box-shadow .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
-    /* NaS AIを主力として最大にし、Advisorを近接、セミナーを補完的に配置 */
+    /* NaS AIを主力として最大にし、Advisoryを近接、セミナーを補完的に配置 */
     .venn-circle.pos-main{left:0;top:10%;width:62%;z-index:2;border-color:rgba(20,49,86,.5);background:rgba(255,255,255,.78);box-shadow:0 14px 36px rgba(20,49,86,.14)}
-    .venn-circle.pos-advisor{right:2%;top:2%;width:48%;z-index:1;background:rgba(236,242,248,.76)}
+    .venn-circle.pos-advisory{right:2%;top:2%;width:48%;z-index:1;background:rgba(236,242,248,.76)}
     .venn-circle.pos-seminar{right:13%;bottom:0;width:39%;z-index:2;background:rgba(255,255,255,.72)}
     /* ホバー／フォーカス：濃紺で塗り、拡大して選択対象を明確にする */
     .venn-circle:focus-visible{border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:scale(1.06);z-index:4;outline:3px solid var(--color-accent);outline-offset:4px}
@@ -193,28 +193,28 @@ const faqs = [
     .venn-circle:active{transform:scale(.98)}
     .venn-inner{padding:0 8px;transition:transform .35s}
     .venn-circle.pos-main .venn-inner{transform:translate(-18%,-4%)}
-    .venn-circle.pos-advisor .venn-inner{transform:translate(19%,-16%)}
+    .venn-circle.pos-advisory .venn-inner{transform:translate(19%,-16%)}
     .venn-circle.pos-seminar .venn-inner{transform:translate(12%,20%)}
     .venn-en{font-size:24px;font-weight:800;color:var(--color-primary);letter-spacing:.01em;line-height:1.1;transition:color .35s}
     .venn-jp{font-size:13px;font-weight:600;color:var(--color-text-secondary);margin-top:7px;transition:color .35s}
-    .venn-circle.pos-advisor .venn-en{font-size:19px}
+    .venn-circle.pos-advisory .venn-en{font-size:19px}
     /* 小さい円（AIセミナー）はラベルも控えめに */
     .venn-circle.pos-seminar .venn-en{font-size:16px}
     .venn-circle.pos-seminar .venn-jp{font-size:10.5px;margin-top:5px}
     @media(max-width:860px){
       .service-venn{max-width:480px}
       .venn-en{font-size:20px}
-      .venn-circle.pos-advisor .venn-en{font-size:17px}
+      .venn-circle.pos-advisory .venn-en{font-size:17px}
       .venn-circle.pos-seminar .venn-en{font-size:14px}
     }
     @media(max-width:420px){
       .service-venn{aspect-ratio:280/220}
       .venn-circle.pos-main{top:12%;width:64%}
-      .venn-circle.pos-advisor{right:0;width:48%}
+      .venn-circle.pos-advisory{right:0;width:48%}
       .venn-circle.pos-seminar{right:10%;width:40%}
       .venn-en{font-size:18px}
       .venn-jp{font-size:11px;margin-top:5px}
-      .venn-circle.pos-advisor .venn-en{font-size:15px}
+      .venn-circle.pos-advisory .venn-en{font-size:15px}
       .venn-circle.pos-seminar .venn-en{font-size:12px}
       .venn-circle.pos-seminar .venn-jp{font-size:9px;line-height:1.35}
     }
