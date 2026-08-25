@@ -1,6 +1,26 @@
 /* ============================================================
    NaS Website — Shared Styles
    ============================================================ */
+@font-face{
+  font-family:'Google Sans';
+  font-style:normal;
+  font-weight:400 700;
+  font-display:swap;
+  src:url('/assets/fonts/GoogleSans-Variable.woff2') format('woff2');
+  unicode-range:U+0000-02FF,U+0300-036F,U+1E00-1EFF,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+2212,U+FEFF,U+FFFD;
+}
+
+/* Google Sans has no public Japanese glyph set, so the official Google Fonts
+   Japanese face is composed into the same CSS family for Japanese characters. */
+@font-face{
+  font-family:'Google Sans';
+  font-style:normal;
+  font-weight:100 900;
+  font-display:swap;
+  src:url('/assets/fonts/GoogleSans-Japanese-Subset.ttf') format('truetype');
+  unicode-range:U+3000-30FF,U+31F0-31FF,U+3400-4DBF,U+4E00-9FFF,U+F900-FAFF,U+FF00-FFEF;
+}
+
 :root{
   /* NaS web palette: navy and white first, with a restrained blue-gray accent. */
   --color-primary:#143156;
@@ -37,7 +57,7 @@
   --text:var(--color-text-primary);
   --text-muted:var(--color-text-secondary);
   --ghost:var(--color-primary);
-  --font-display:'Space Grotesk',sans-serif; /* ロゴ・ワードマーク専用 */
+  --font-display:'Google Sans',sans-serif;
   --max:1180px;
 }
 
@@ -45,7 +65,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;padding:0;
-  font-family:'Inter','Noto Sans JP',sans-serif;
+  font-family:'Google Sans',sans-serif;
   color:var(--text);
   font-feature-settings:"palt" 1,"kern" 1;
   background:var(--color-background);
@@ -298,11 +318,10 @@ img{max-width:100%}
    Record detail — number font unification + Before→After UI
    (shared so all of record-01/02/03 stay in sync)
    ============================================================ */
-/* 数字のフォントを揃える：データ数値を Space Grotesk の等幅数字に統一
-   （大きな実績数値だけは編集的な Fraunces のまま＝一覧カードと共通） */
+/* データ数値も含め、ヒーローコピー以外は Google Sans に統一 */
 .cd-wrap .cd-spec-list .v,
 .cd-wrap .cd-data{
-  font-family:'Space Grotesk','Noto Sans JP',sans-serif;
+  font-family:'Google Sans',sans-serif;
   font-feature-settings:"tnum" 1;
 }
 
@@ -310,12 +329,12 @@ img{max-width:100%}
 .rec-hero-metric{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:22px}
 .rec-hero-info{display:flex;flex-direction:column;gap:14px}
 .rec-hero-lblwrap{display:flex;flex-direction:column;gap:5px}
-.rec-hero-en{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--color-accent)}
+.rec-hero-en{font-family:'Google Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--color-accent)}
 .rec-hero-lbl{font-size:14px;font-weight:700;letter-spacing:.04em;color:#fff}
 .rec-hero-tag{align-self:flex-start;font-size:12px;font-weight:700;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:30px;letter-spacing:.04em;color:#fff}
 .rec-hero-figure{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .rec-hero-val{display:flex;align-items:baseline;gap:7px;line-height:1}
-.rec-hero-val .num{font-family:'Fraunces','Times New Roman',serif;font-optical-sizing:auto;font-size:clamp(60px,13vw,88px);font-weight:600;line-height:.86;color:#fff}
+.rec-hero-val .num{font-family:'Google Sans',sans-serif;font-size:clamp(60px,13vw,88px);font-weight:600;line-height:.86;color:#fff}
 .rec-hero-val .unit{font-size:18px;font-weight:700;color:#fff}
 .rec-hero-est{font-size:11px;font-weight:700;color:var(--color-primary);background:var(--color-accent);padding:3px 12px;border-radius:30px;letter-spacing:.02em}
 @media(max-width:560px){
@@ -331,7 +350,7 @@ img{max-width:100%}
 .cd-ba-col{position:relative;border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:11px;border:1px solid var(--color-border);background:#fff}
 .cd-ba-col.before{background:var(--color-surface);border-color:var(--color-border)}
 .cd-ba-col.after{background:#fff;border-color:var(--color-accent)}
-.cd-ba-h{display:inline-flex;align-items:center;gap:7px;font-family:'Space Grotesk',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em}
+.cd-ba-h{display:inline-flex;align-items:center;gap:7px;font-family:'Google Sans',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em}
 .cd-ba-col.before .cd-ba-h{color:var(--color-text-secondary)}
 .cd-ba-col.after .cd-ba-h{color:var(--color-accent)}
 .cd-ba-h svg{flex:none}
