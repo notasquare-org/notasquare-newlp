@@ -43,14 +43,12 @@ const reasons = [
   { num: '04', title: 'AI導入後も継続支援',         desc: 'システムのアップデートや活用上の疑問に対応し、継続的な運用・定着を支援します。',                 img: '/uploads/reason-04.png' },
 ];
 
-// SERVICE（事業内容）の3事業。short は円（ベン図）に入れる短いラベル。
+// SERVICE（事業内容）の3事業。名称・リンク・画像の対応をここで一元管理する。
 const services = [
-  { title: 'NaS AI',      en: 'NaS AI',      short: 'AI導入支援',         anchor: '/service#service-01' },
-  { title: 'NaS Advisory', en: 'NaS Advisory', short: 'AI顧問',             anchor: '/service#service-02' },
-  { title: 'AIセミナー',  en: 'AIセミナー',  short: '法人向けAIセミナー', anchor: '/service#service-03' },
+  { title: 'NaS AI',       subtitle: 'AI導入支援',         img: '/uploads/service-01.png', anchor: '/service#service-01' },
+  { title: 'NaS Advisory', subtitle: 'AI顧問',             img: '/uploads/service-02.png', anchor: '/service#service-02' },
+  { title: 'AIセミナー',   subtitle: '法人向けAIセミナー', img: '/uploads/service-03.png', anchor: '/service#service-03' },
 ];
-// 円の配置（主力・関連・補完の3つ）。
-const vennPos = ['pos-main', 'pos-advisory', 'pos-seminar'];
 
 // よくあるご質問（Q&A）。
 // ここを唯一の情報源にして、下のアコーディオン表示と FAQPage 構造化データ（JSON-LD）の
@@ -145,7 +143,7 @@ const faqs = [
 </section>
 
 <!-- ===== SERVICE ===== -->
-<section id="service" class="sec sec-light">
+<section id="service" class="sec sec-light service-section">
   <div class="container">
     <div class="sec-head reveal">
       <div class="sec-en">SERVICE</div>
@@ -153,70 +151,42 @@ const faqs = [
       <div class="sec-rule"></div>
     </div>
 
-    <div class="service-layout reveal">
-      <!-- 3つの円（ベン図／クリックで各事業セクションへ） -->
-      <div class="service-venn">
-        {services.map((s, i) => (
-          <a href={s.anchor} class={`venn-circle ${vennPos[i]}`} aria-label={`${s.title}を見る`}>
-            <div class="venn-inner">
-              <div class="venn-en">{s.en}</div>
-              {s.short && <div class="venn-jp" set:html={s.short}></div>}
-            </div>
-          </a>
-        ))}
-      </div>
+    <div class="service-grid reveal">
+      {services.map((s) => (
+        <a href={s.anchor} class="service-card" aria-label={`${s.title}を見る`}>
+          <div class="service-image-wrap">
+            <img src={s.img} alt={`${s.title}のイメージ`} loading="lazy" />
+          </div>
+          <h3>{s.title}</h3>
+          <p>{s.subtitle}</p>
+        </a>
+      ))}
     </div>
 
-    <div class="reveal" style="text-align:center;margin-top:48px">
+    <div class="service-more reveal">
       <a href="/service/" class="btn btn-ghost">事業内容をくわしく見る →</a>
     </div>
   </div>
 
   <style is:inline>
-    .service-layout{display:flex;justify-content:center;max-width:980px;margin:0 auto}
-    /* ----- ベン図（クリック可能な3つの円） ----- */
-    .service-venn{position:relative;width:100%;max-width:580px;aspect-ratio:580/410;margin:0 auto}
-    .venn-circle{position:absolute;aspect-ratio:1/1;border-radius:50%;border:1.5px solid rgba(20,49,86,.32);background:rgba(255,255,255,.62);display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;cursor:pointer;will-change:transform;transition:border-color .35s,background .35s,box-shadow .35s,transform .35s cubic-bezier(.2,.7,.2,1)}
-    /* NaS AIを主力として最大にし、Advisoryを近接、セミナーを補完的に配置 */
-    .venn-circle.pos-main{left:0;top:10%;width:62%;z-index:2;border-color:rgba(20,49,86,.5);background:rgba(255,255,255,.78);box-shadow:0 14px 36px rgba(20,49,86,.14)}
-    .venn-circle.pos-advisory{right:2%;top:2%;width:48%;z-index:1;background:rgba(236,242,248,.76)}
-    .venn-circle.pos-seminar{right:13%;bottom:0;width:39%;z-index:2;background:rgba(255,255,255,.72)}
-    /* ホバー／フォーカス：濃紺で塗り、拡大して選択対象を明確にする */
-    .venn-circle:focus-visible{border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:scale(1.06);z-index:4;outline:3px solid var(--color-accent);outline-offset:4px}
-    .venn-circle:focus-visible .venn-en{color:#fff}
-    .venn-circle:focus-visible .venn-jp{color:var(--color-accent)}
+    .service-section{overflow:hidden}
+    .service-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,5vw,72px);margin-top:4px}
+    .service-grid::before{content:"";position:absolute;left:8%;right:8%;top:clamp(108px,12vw,150px);height:3px;background:var(--color-accent);z-index:0}
+    .service-card{position:relative;z-index:1;display:block;color:var(--color-primary);text-decoration:none}
+    .service-image-wrap{box-sizing:border-box;aspect-ratio:1/1;overflow:hidden;border:2px solid var(--color-primary);background:#edf6fb;box-shadow:0 18px 44px rgba(0,0,0,.2);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+    .service-image-wrap img{display:block;width:100%;height:100%;object-fit:contain}
+    .service-card h3{margin:22px 0 0;font-size:clamp(24px,2.5vw,36px);font-weight:500;line-height:1.25;letter-spacing:.01em;color:var(--color-primary)}
+    .service-card p{margin:8px 0 0;font-size:14px;font-weight:600;line-height:1.6;color:var(--color-text-secondary)}
+    .service-card:focus-visible{outline:3px solid var(--color-accent);outline-offset:8px}
     @media(hover:hover){
-      .venn-circle:hover{border-color:var(--color-primary);background:var(--color-primary);box-shadow:0 22px 48px rgba(20,49,86,.28);transform:scale(1.06);z-index:4}
-      .venn-circle:hover .venn-en{color:#fff}
-      .venn-circle:hover .venn-jp{color:var(--color-accent)}
+      .service-card:hover .service-image-wrap{transform:translateY(-8px);box-shadow:0 24px 54px rgba(0,0,0,.34)}
     }
-    .venn-circle:active{transform:scale(.98)}
-    .venn-inner{padding:0 8px;transition:transform .35s}
-    .venn-circle.pos-main .venn-inner{transform:translate(-18%,-4%)}
-    .venn-circle.pos-advisory .venn-inner{transform:translate(19%,-16%)}
-    .venn-circle.pos-seminar .venn-inner{transform:translate(12%,20%)}
-    .venn-en{font-size:24px;font-weight:800;color:var(--color-primary);letter-spacing:.01em;line-height:1.1;transition:color .35s}
-    .venn-jp{font-size:13px;font-weight:600;color:var(--color-text-secondary);margin-top:7px;transition:color .35s}
-    .venn-circle.pos-advisory .venn-en{font-size:19px}
-    /* 小さい円（AIセミナー）はラベルも控えめに */
-    .venn-circle.pos-seminar .venn-en{font-size:16px}
-    .venn-circle.pos-seminar .venn-jp{font-size:10.5px;margin-top:5px}
-    @media(max-width:860px){
-      .service-venn{max-width:480px}
-      .venn-en{font-size:20px}
-      .venn-circle.pos-advisory .venn-en{font-size:17px}
-      .venn-circle.pos-seminar .venn-en{font-size:14px}
-    }
-    @media(max-width:420px){
-      .service-venn{aspect-ratio:280/220}
-      .venn-circle.pos-main{top:12%;width:64%}
-      .venn-circle.pos-advisory{right:0;width:48%}
-      .venn-circle.pos-seminar{right:10%;width:40%}
-      .venn-en{font-size:18px}
-      .venn-jp{font-size:11px;margin-top:5px}
-      .venn-circle.pos-advisory .venn-en{font-size:15px}
-      .venn-circle.pos-seminar .venn-en{font-size:12px}
-      .venn-circle.pos-seminar .venn-jp{font-size:9px;line-height:1.35}
+    .service-more{text-align:center;margin-top:56px}
+    @media(max-width:760px){
+      .service-grid{grid-template-columns:1fr;gap:42px;max-width:520px;margin:0 auto}
+      .service-grid::before{left:50%;right:auto;top:4%;bottom:4%;width:3px;height:auto}
+      .service-card h3{margin-top:16px;font-size:clamp(24px,8vw,32px)}
+      .service-more{margin-top:46px}
     }
   </style>
 </section>
@@ -268,73 +238,6 @@ const faqs = [
       }
     </style>
   </div>
-</section>
-
-<!-- ===== FLOW ===== -->
-<section id="flow" class="sec sec-light">
-  <div class="container">
-    <div class="sec-head reveal">
-      <div class="sec-en">FLOW</div>
-      <div class="sec-jp">導入の流れ</div>
-      <div class="sec-rule"></div>
-    </div>
-    <div class="flow-diagram reveal">
-      <div class="flow-axis"><span>導入フロー</span></div>
-      <div class="flow-steps">
-        <div class="flow-step flow-step-free" style="--c:var(--color-border);--t:var(--color-surface);--tc:var(--color-primary);--nc:var(--color-accent)">
-          <div class="flow-bar">
-            <span class="flow-num">01</span>
-            <span class="flow-title">無料診断</span>
-            <span class="flow-free-label">無料</span>
-          </div>
-          <div class="flow-desc">ヒアリングをもとに、AI活用の可能性を無料で診断します。</div>
-        </div>
-        <div class="flow-paid">
-          <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)" data-delay="1">
-            <div class="flow-bar"><span class="flow-num">02</span><span class="flow-title">初期診断</span></div>
-            <div class="flow-desc">業務フローや課題を把握し、AI活用の余地を整理します。</div>
-          </div>
-          <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)" data-delay="2">
-            <div class="flow-bar"><span class="flow-num">03</span><span class="flow-title">基盤の整形</span></div>
-            <div class="flow-desc">既存環境を整理し、Google Workspaceに標準化することで、AIを最も効果的に導入・運用できる基盤を構築します。</div>
-          </div>
-          <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)" data-delay="3">
-            <div class="flow-bar"><span class="flow-num">04</span><span class="flow-title">AI導入・システム開発</span></div>
-            <div class="flow-desc">業務や費用対効果に合わせてAIを導入・システム開発を現場へ導入します。</div>
-          </div>
-          <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)" data-delay="4">
-            <div class="flow-bar"><span class="flow-num">05</span><span class="flow-title">運用・定着</span></div>
-            <div class="flow-desc">AI導入後も、システムのアップデートや活用上の疑問に対応し、継続的な運用・定着を支援します。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <style is:inline>
-    .flow-diagram{display:flex;gap:16px;align-items:stretch;max-width:920px;margin:0 auto}
-    .flow-axis{flex:none;width:58px;background:var(--color-primary);border-radius:6px 6px 0 0;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),50% 100%,0 calc(100% - 30px));display:flex;align-items:center;justify-content:center;padding:22px 0 44px}
-    .flow-axis span{writing-mode:vertical-rl;text-orientation:upright;color:#fff;font-size:17px;font-weight:700;letter-spacing:.3em}
-    .flow-steps{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
-    .flow-step{display:flex;align-items:stretch;min-height:96px}
-    .flow-bar{flex:0 0 50%;min-width:0;background:var(--c);color:var(--tc,#fff);display:flex;align-items:center;gap:20px;padding:16px 20px;clip-path:polygon(0 0,calc(100% - 30px) 0,100% 50%,calc(100% - 30px) 100%,0 100%);margin-right:-30px;position:relative;z-index:2}
-    .flow-num{flex:none;width:52px;height:64px;background:#fff;border-radius:9px;color:var(--nc,var(--c));display:flex;align-items:center;justify-content:center;font-size:23px;font-weight:800;letter-spacing:.02em;box-shadow:0 1px 4px rgba(20,49,86,.12)}
-    .flow-title{font-size:21px;font-weight:700;letter-spacing:.04em}
-    .flow-desc{flex:1;min-width:0;background:var(--t);display:flex;align-items:center;padding:16px 26px 16px 50px;font-size:13.5px;line-height:1.85;color:var(--color-primary)}
-    .flow-free-label{margin-left:auto;flex:none;border:1px solid var(--color-accent);border-radius:999px;background:#fff;padding:5px 12px;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--color-primary)}
-    .flow-paid{position:relative;display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--color-accent);border-radius:10px;padding:10px;background:rgba(255,255,255,.6)}
-    @media(max-width:760px){
-      .flow-diagram{flex-direction:column;gap:8px}
-      .flow-axis{width:auto;height:46px;flex-direction:row;border-radius:6px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%);padding:0 24px 0 18px;justify-content:flex-start}
-      .flow-axis span{writing-mode:horizontal-tb;letter-spacing:.2em;font-size:15px}
-      .flow-step{flex-direction:column;min-height:0}
-      .flow-bar{flex:none;margin-right:0;clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),50% 100%,0 calc(100% - 16px));padding:16px 18px 26px;z-index:2}
-      .flow-desc{padding:22px 18px 16px;margin-top:-10px}
-      .flow-title{font-size:19px}
-      .flow-paid{padding:8px;gap:8px;border-radius:9px}
-      .flow-free-label{margin-right:18px}
-    }
-  </style>
 </section>
 
 <!-- ===== PRICE ===== -->
