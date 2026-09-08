@@ -304,8 +304,6 @@ img{max-width:100%}
   .grid-2,.grid-3,.grid-4{grid-template-columns:1fr !important}
   .flow-row{flex-direction:column;gap:8px}
   .flow-arrow{transform:rotate(90deg);padding:4px 0 !important}
-  .price-row{flex-direction:column}
-  .price-arrow{transform:rotate(90deg)}
   h1{font-size:34px !important}
 }
 

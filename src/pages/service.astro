@@ -23,7 +23,7 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
         <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS AI</h2>
         <div style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">
           <p style="margin:0 0 12px">AIエンジニアが現場に入り込み、業務改善を実装・定着・継続支援するサービスです。</p>
-          <p style="margin:0">まず既存の環境をAIを最も効果的に動かせる環境（Google Workspace）に再構築。次に、業務や費用対効果に合ったAI導入・システム開発し、月額の伴走・保守でその余白を定着させます。</p>
+          <p style="margin:0">まず既存の業務環境とデータを整理し、AIを効果的に導入・運用できる基盤を構築。次に、業務や費用対効果に合ったAI導入・システム開発を行い、継続的な伴走・保守でその余白を定着させます。</p>
         </div>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>業務フロー監査</li>
@@ -60,7 +60,7 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
             </div>
             <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)">
               <div class="flow-bar"><span class="flow-num">03</span><span class="flow-title">基盤の整形</span></div>
-              <div class="flow-desc">既存環境を整理し、Google Workspaceに標準化することで、AIを最も効果的に導入・運用できる基盤を構築します。</div>
+              <div class="flow-desc">既存の業務環境とデータを整理し、AIを効果的に導入・運用できる基盤を構築します。</div>
             </div>
             <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)">
               <div class="flow-bar"><span class="flow-num">04</span><span class="flow-title">AI導入・システム開発</span></div>
@@ -85,7 +85,6 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
         <span class="tag-pill">02</span>
         <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Advisory</h2>
         <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 18px">AIについて継続的に相談したい企業に向けた、法人向けのAI顧問サービスです。月1回〜のオンライン相談とチャット相談を基本に、AI活用に関する疑問や最新情報、業務への取り入れ方について継続的にサポートします。支援内容は、お客様の課題や状況に応じて柔軟に調整します。</p>
-        <div class="service-price">月額5万円〜</div>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>月1回のオンライン相談</li>
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>回数制限なしのチャット相談</li>
@@ -134,18 +133,6 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
     width: 100%;
     max-width: 100%;
     height: auto;
-  }
-
-  .service-price {
-    width: fit-content;
-    margin: 0 0 22px;
-    padding: 7px 14px;
-    border: 1px solid rgba(20,49,86,.22);
-    border-radius: 999px;
-    background: #fff;
-    color: var(--color-primary);
-    font-size: 14px;
-    font-weight: 700;
   }
 
   .flow-toggle{margin-top:26px;cursor:pointer}

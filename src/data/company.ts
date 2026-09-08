@@ -26,10 +26,10 @@ export const company = {
   telephone: '090-6665-6240',
 
   address: {
-    postalCode: '532-0011',
-    streetAddress: '西中島1-9-20 新中島ビル1F',
-    addressLocality: '大阪市淀川区',
-    addressRegion: '大阪府',
+    postalCode: '658-0032',
+    streetAddress: '向洋町中5-6-1 1315',
+    addressLocality: '神戸市東灘区',
+    addressRegion: '兵庫県',
     addressCountry: 'JP',
   },
 
