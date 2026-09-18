@@ -47,6 +47,7 @@ const reasons = [
 const serviceGroups = [
   {
     num: '01',
+    label: '①',
     title: 'AIを実装する',
     services: [
       {
@@ -65,6 +66,7 @@ const serviceGroups = [
   },
   {
     num: '02',
+    label: '②',
     title: 'AIを教える',
     services: [
       {
@@ -184,7 +186,7 @@ const faqs = [
       {serviceGroups.map((group, groupIndex) => (
         <section class="service-category reveal" data-delay={groupIndex + 1} aria-labelledby={`service-category-${group.num}`}>
           <div class="service-category-head">
-            <span>{group.num}</span>
+            <span>{group.label}</span>
             <h3 id={`service-category-${group.num}`}>{group.title}</h3>
           </div>
 
