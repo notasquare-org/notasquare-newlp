@@ -164,9 +164,9 @@ img{max-width:100%}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--navy)}
 
 /* ---------- Section heading ---------- */
-.sec{padding:124px 0 128px}
+.sec{padding:104px 0 108px}
 .sec-light{background:var(--light-blue)}
-.sec-head{text-align:center;margin-bottom:50px}
+.sec-head{text-align:center;margin-bottom:42px}
 .sec-en{font-size:86px;font-weight:700;letter-spacing:.02em;color:var(--ghost);line-height:1}
 .sec-en.sm{font-size:72px}
 .sec-jp{font-size:20px;font-weight:700;color:var(--navy);margin-top:18px}
@@ -175,7 +175,7 @@ img{max-width:100%}
 /* ---------- Page hero (sub pages) ---------- */
 .page-hero{
   position:relative;background:var(--color-primary);
-  color:#fff;padding:74px 0 70px;overflow:hidden;
+  color:#fff;padding:62px 0 58px;overflow:hidden;
 }
 .page-hero::before{
   content:"";position:absolute;inset:0;
@@ -188,7 +188,7 @@ img{max-width:100%}
 .breadcrumb a:hover{text-decoration:underline}
 
 /* ---------- CTA band ---------- */
-.cta-band{background:var(--navy);color:#fff;padding:42px 0;border-top:1px solid rgba(255,255,255,.16)}
+.cta-band{background:var(--navy);color:#fff;padding:36px 0;border-top:1px solid rgba(255,255,255,.16)}
 .cta-band .container{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .cta-band .ttl{font-size:27px;font-weight:700;margin-bottom:8px}
 .cta-band .sub{font-size:14px;color:#fff}
@@ -197,11 +197,18 @@ img{max-width:100%}
 .cta-band .btn-pill{padding:16px 54px;font-size:14.5px}
 
 /* ---------- Footer ---------- */
-.site-footer{background:var(--navy-dark);color:#fff;padding:54px 0 26px;font-size:13px}
+.site-footer{background:var(--navy-dark);color:#fff;padding:48px 0 24px;font-size:13px}
 .footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px;border-bottom:1px solid var(--navy-line)}
 .footer-brand{max-width:300px}
+.footer-brand-row{display:flex;align-items:center;gap:14px}
 .footer-brand .footer-logo{display:inline-block}
 .footer-brand .footer-logo img{height:30px;width:auto;max-width:100%;display:block}
+.footer-social-links{display:flex;align-items:center;gap:7px}
+.footer-social-links a{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.32);border-radius:50%;color:#fff;transition:background-color .2s,border-color .2s,transform .2s}
+.footer-social-links a:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7);transform:translateY(-1px)}
+.footer-social-links a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.footer-social-links svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footer-social-links .footer-social-dot{fill:currentColor;stroke:none}
 .footer-brand .addr{line-height:2;color:#fff;font-size:12.5px;margin-top:18px}
 .footer-brand .footer-security{display:inline-block;margin-top:20px;line-height:0;transition:opacity .2s}
 .footer-brand .footer-security:hover{opacity:.85}
@@ -297,7 +304,11 @@ img{max-width:100%}
 @media (max-width:760px){
   .container{padding:0 20px}
   .header-inner{padding:12px 20px}
-  .sec{padding:80px 0 84px}
+  .sec{padding:68px 0 72px}
+  .sec-head{margin-bottom:36px}
+  .page-hero{padding:52px 0 48px}
+  .cta-band{padding:32px 0}
+  .site-footer{padding:42px 0 22px}
   .cta-band .container{flex-direction:column;align-items:flex-start}
   .cta-band .actions{width:100%;flex-direction:column;gap:12px}
   .cta-band .btn-pill{width:100%;min-width:0}

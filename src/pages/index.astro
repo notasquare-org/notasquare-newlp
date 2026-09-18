@@ -43,11 +43,44 @@ const reasons = [
   { num: '04', title: 'AI導入後も継続支援',         desc: 'システムのアップデートや活用上の疑問に対応し、継続的な運用・定着を支援します。',                 img: '/uploads/reason-04.png' },
 ];
 
-// SERVICE（事業内容）の3事業。名称・リンク・画像の対応をここで一元管理する。
-const services = [
-  { title: 'NaS AI',       subtitle: 'AI導入支援',         img: '/uploads/service-01.png', anchor: '/service#service-01' },
-  { title: 'NaS Advisory', subtitle: 'AI顧問',             img: '/uploads/service-02.png', anchor: '/service#service-02' },
-  { title: 'AIセミナー',   subtitle: '法人向けAIセミナー', img: '/uploads/service-03.png', anchor: '/service#service-03' },
+// SERVICE（事業内容）は、2つの領域に4事業を整理して表示する。
+const serviceGroups = [
+  {
+    num: '01',
+    title: 'AIを実装する',
+    services: [
+      {
+        title: 'NaS AI',
+        description: '現場に入り、AIの導入から運用まで伴走する事業',
+        img: '/uploads/service-01.png',
+        anchor: '/service#service-01',
+      },
+      {
+        title: 'NaS Engineering',
+        description: 'AIを活用した業務システムを企画・開発する事業',
+        img: '/uploads/service-02.png',
+        anchor: '/service#service-02',
+      },
+    ],
+  },
+  {
+    num: '02',
+    title: 'AIを教える',
+    services: [
+      {
+        title: 'NaS Academy',
+        description: 'AIの基礎から実践まで、組織に合わせて学ぶ事業',
+        img: '/uploads/service-03.png',
+        anchor: '/service#service-03',
+      },
+      {
+        title: 'NaS Advisory',
+        description: 'AI活用の方針や施策を継続的に支援する事業',
+        img: '/uploads/service-04.png',
+        anchor: '/service#service-04',
+      },
+    ],
+  },
 ];
 
 // よくあるご質問（Q&A）。
@@ -75,7 +108,7 @@ const faqs = [
 
 <BaseLayout
   title="Not a Square（NaS）｜雇わずに持てる、御社専属のAI部門。"
-  description="株式会社Not a Square（NaS）は、AIエンジニアが現場に寄り添い、AIの選定・導入から運用・定着まで伴走するNaS AIを提供しています。京阪神および関西一円に対応。"
+  description="株式会社Not a Square（NaS）は、AIの実装と人材育成を通じて、企業のAI活用を支援します。NaS AI、NaS Engineering、NaS Academy、NaS Advisoryを展開しています。"
   faq={faqs}
 >
 
@@ -147,42 +180,75 @@ const faqs = [
       <div class="sec-rule"></div>
     </div>
 
-    <div class="service-grid reveal">
-      {services.map((s) => (
-        <a href={s.anchor} class="service-card" aria-label={`${s.title}を見る`}>
-          <div class="service-image-wrap">
-            <img src={s.img} alt={`${s.title}のイメージ`} loading="lazy" />
+    <div class="service-groups">
+      {serviceGroups.map((group, groupIndex) => (
+        <section class="service-category reveal" data-delay={groupIndex + 1} aria-labelledby={`service-category-${group.num}`}>
+          <div class="service-category-head">
+            <span>{group.num}</span>
+            <h3 id={`service-category-${group.num}`}>{group.title}</h3>
           </div>
-          <h3>{s.title}</h3>
-          <p>{s.subtitle}</p>
-        </a>
-      ))}
-    </div>
 
-    <div class="service-more reveal">
-      <a href="/service/" class="btn btn-ghost">事業内容をくわしく見る →</a>
+          <div class="service-list">
+            {group.services.map((service) => (
+              <a href={service.anchor} class="service-card" aria-label={`${service.title}の事業内容を見る`}>
+                <div class:list={["service-image-wrap", !service.img && "is-placeholder"]}>
+                  {service.img && <img src={service.img} alt="" loading="lazy" />}
+                </div>
+                <div class="service-card-body">
+                  <h4>{service.title}</h4>
+                  <p>{service.description}</p>
+                  <div class="service-link" aria-hidden="true">
+                    事業内容を見る <span aria-hidden="true">→</span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   </div>
 
   <style is:inline>
     .service-section{overflow:hidden}
-    .service-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,5vw,72px);margin-top:4px}
-    .service-grid::before{content:"";position:absolute;left:8%;right:8%;top:clamp(108px,12vw,150px);height:3px;background:var(--color-accent);z-index:0}
-    .service-card{position:relative;z-index:1;display:block;color:var(--color-primary);text-decoration:none}
-    .service-image-wrap{box-sizing:border-box;aspect-ratio:1/1;overflow:hidden;border:2px solid var(--color-primary);background:#e8eaee;box-shadow:0 18px 44px rgba(0,0,0,.2);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+    .service-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,4vw,56px)}
+    .service-category{display:flex;min-width:0;flex-direction:column}
+    .service-category-head{display:flex;align-items:center;gap:10px;margin:0 0 18px;padding:0 2px 11px;border-bottom:1px solid var(--color-border);color:var(--color-text-secondary)}
+    .service-category-head span{font-family:'Fraunces','Times New Roman',serif;font-size:18px;font-style:italic;line-height:1;color:var(--color-accent)}
+    .service-category-head h3{margin:0;font-size:15px;font-weight:600;line-height:1.4;letter-spacing:.04em;color:var(--color-text-secondary)}
+    .service-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;flex:1;gap:18px}
+    .service-card{display:flex;min-width:0;height:100%;flex-direction:column;background:#fff;border:1px solid var(--color-border);box-shadow:0 14px 38px rgba(20,49,86,.1);color:inherit;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+    .service-image-wrap{aspect-ratio:1/1;overflow:hidden;background:#eef0f3;border-bottom:1px solid var(--color-border)}
     .service-image-wrap img{display:block;width:100%;height:100%;object-fit:contain}
-    .service-card h3{margin:22px 0 0;font-size:clamp(24px,2.5vw,36px);font-weight:500;line-height:1.25;letter-spacing:.01em;color:var(--color-primary)}
-    .service-card p{margin:8px 0 0;font-size:14px;font-weight:600;line-height:1.6;color:var(--color-text-secondary)}
-    .service-card:focus-visible{outline:3px solid var(--color-accent);outline-offset:8px}
+    .service-image-wrap.is-placeholder{background:#fff}
+    .service-card-body{display:flex;flex:1;flex-direction:column;padding:22px 20px 20px}
+    .service-card h4{margin:0 0 12px;font-size:clamp(20px,1.7vw,24px);font-weight:600;line-height:1.25;letter-spacing:0;white-space:nowrap;color:var(--color-primary)}
+    .service-card p{margin:0 0 22px;font-size:14px;line-height:1.8;color:var(--color-text-secondary)}
+    .service-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:15px;border-top:1px solid var(--color-border);font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--color-primary);text-decoration:none}
+    .service-link span{font-size:18px;transition:transform .25s}
+    .service-card:focus-visible{outline:3px solid var(--color-accent);outline-offset:5px}
     @media(hover:hover){
-      .service-card:hover .service-image-wrap{transform:translateY(-8px);box-shadow:0 24px 54px rgba(0,0,0,.34)}
+      .service-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(20,49,86,.16)}
+      .service-card:hover .service-link span{transform:translateX(4px)}
     }
-    .service-more{text-align:center;margin-top:56px}
+    @media(max-width:1040px){
+      .service-groups{grid-template-columns:1fr;gap:38px}
+      .service-list{gap:22px}
+    }
     @media(max-width:760px){
-      .service-grid{grid-template-columns:1fr;gap:42px;max-width:520px;margin:0 auto}
-      .service-grid::before{left:50%;right:auto;top:4%;bottom:4%;width:3px;height:auto}
-      .service-card h3{margin-top:16px;font-size:clamp(24px,8vw,32px)}
-      .service-more{margin-top:46px}
+      .service-groups{gap:34px}
+      .service-list{grid-template-columns:1fr;gap:18px}
+      .service-category-head{margin-bottom:15px}
+      .service-card{display:grid;grid-template-columns:minmax(112px,38%) 1fr}
+      .service-image-wrap{aspect-ratio:1/1;border-bottom:0;border-right:1px solid var(--color-border)}
+      .service-card-body{padding:18px 16px}
+      .service-card h4{font-size:22px}
+      .service-card p{font-size:13px;line-height:1.7;margin-bottom:16px}
+      .service-link{padding-top:12px;font-size:12px}
+    }
+    @media(max-width:420px){
+      .service-card{grid-template-columns:1fr}
+      .service-image-wrap{aspect-ratio:16/10;border-right:0;border-bottom:1px solid var(--color-border)}
     }
   </style>
 </section>

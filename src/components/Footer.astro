@@ -6,7 +6,23 @@ import { company } from '../data/company';
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="/" class="footer-logo"><img src="/uploads/footer_logo.png" alt="Not a Square"></a>
+        <div class="footer-brand-row">
+          <a href="/" class="footer-logo"><img src="/uploads/footer_logo.png" alt="Not a Square"></a>
+          <div class="footer-social-links" aria-label="公式SNS">
+            <a href="https://www.instagram.com/nas___inc/" target="_blank" rel="noopener noreferrer" aria-label="Instagram（新しいタブで開く）">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle class="footer-social-dot" cx="17.5" cy="6.5" r="1" />
+              </svg>
+            </a>
+            <a href="https://x.com/notasquare_ai" target="_blank" rel="noopener noreferrer" aria-label="X（新しいタブで開く）">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 4l14 16M19 4L5 20" />
+              </svg>
+            </a>
+          </div>
+        </div>
         <div class="addr">
           {company.name}（{company.shortName}）<br>
           〒{company.address.postalCode}<br>

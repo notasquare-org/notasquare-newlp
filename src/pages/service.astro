@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const title = `NaS AI・NaS Advisory・法人向けAIセミナー｜Not a Square`;
-const description = `株式会社Not a Square（NaS）の事業内容。AIの導入・実装から運用・定着まで伴走するNaS AI、法人向けAI顧問サービスのNaS Advisory、法人向けAIセミナーをご紹介します。`;
+const title = `NaS AI・NaS Engineering・NaS Academy・NaS Advisory｜Not a Square`;
+const description = `株式会社Not a Square（NaS）の事業内容。AIの導入・伴走支援、AIシステム開発、AI研修・人材育成、AI活用アドバイザリーの4つの事業をご紹介します。`;
 ---
 
 <BaseLayout title={title} description={description} active="service" breadcrumb={[{ name: '事業内容' }]}>
@@ -23,13 +23,13 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
         <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS AI</h2>
         <div style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">
           <p style="margin:0 0 12px">AIエンジニアが現場に入り込み、業務改善を実装・定着・継続支援するサービスです。</p>
-          <p style="margin:0">まず既存の業務環境とデータを整理し、AIを効果的に導入・運用できる基盤を構築。次に、業務や費用対効果に合ったAI導入・システム開発を行い、継続的な伴走・保守でその余白を定着させます。</p>
+          <p style="margin:0">既存の業務環境や課題を整理し、活用するテーマに合わせてAIツールを選定・導入します。その後も、現場で使い続けられるよう運用と定着を継続的に支援します。</p>
         </div>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>業務フロー監査</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AIツール選定・実装</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>システム開発</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>伴走・保守・改善</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>現場課題の整理</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AI活用設計</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AIツール選定・導入</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>運用・定着支援</li>
         </ul>
         <button id="flow-toggle" type="button" class="btn btn-ghost flow-toggle" aria-expanded="false" aria-controls="flow">導入フローを見る <span aria-hidden="true">↓</span></button>
       </div>
@@ -63,8 +63,8 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
               <div class="flow-desc">既存の業務環境とデータを整理し、AIを効果的に導入・運用できる基盤を構築します。</div>
             </div>
             <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)">
-              <div class="flow-bar"><span class="flow-num">04</span><span class="flow-title">AI導入・システム開発</span></div>
-              <div class="flow-desc">業務や費用対効果に合わせてAIを導入・システム開発を現場へ導入します。</div>
+              <div class="flow-bar"><span class="flow-num">04</span><span class="flow-title">AI導入・実装</span></div>
+              <div class="flow-desc">業務や費用対効果に合わせてAIツールを選定し、現場へ導入します。</div>
             </div>
             <div class="flow-step" style="--c:var(--color-primary);--t:var(--color-surface);--tc:#fff;--nc:var(--color-accent)">
               <div class="flow-bar"><span class="flow-num">05</span><span class="flow-title">運用・定着</span></div>
@@ -83,17 +83,17 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;direction:rtl" class="grid-2">
       <div class="reveal-left" style="direction:ltr">
         <span class="tag-pill">02</span>
-        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Advisory</h2>
-        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 18px">AIについて継続的に相談したい企業に向けた、法人向けのAI顧問サービスです。月1回〜のオンライン相談とチャット相談を基本に、AI活用に関する疑問や最新情報、業務への取り入れ方について継続的にサポートします。支援内容は、お客様の課題や状況に応じて柔軟に調整します。</p>
+        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Engineering</h2>
+        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 18px">AIを活用した業務システムやプロダクトを、企画・設計から開発、導入まで一貫して支援する事業です。お客様の業務や目的に合わせて、実際に使える仕組みへ落とし込みます。</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>月1回のオンライン相談</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>回数制限なしのチャット相談</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新AI情報の共有</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>課題に応じた活用アドバイス</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>要件整理・設計</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AIシステム開発</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>業務への導入</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>運用に合わせた改善</li>
         </ul>
       </div>
       <div class="reveal service-media" style="direction:ltr">
-        <img class="service-image" src="/uploads/service-02.png" alt="NaS Advisoryによる法人向けAI顧問サービス">
+        <img class="service-image" src="/uploads/service-02.png" alt="NaS EngineeringによるAIシステム開発">
       </div>
     </div>
   </div>
@@ -105,17 +105,39 @@ const description = `株式会社Not a Square（NaS）の事業内容。AIの導
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center" class="grid-2">
       <div class="reveal-left">
         <span class="tag-pill">03</span>
-        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">法人向けAIセミナー</h2>
-        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">AI活用を学べるセミナーを企画・開催します。経営者や現場担当者に向けて、専門用語に頼らず「明日から使える」AI活用の基礎から実践までを、事例を交えてお届けします。</p>
+        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Academy</h2>
+        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 22px">企業や組織に向けて、AIの基礎から実務での活用までを学べる研修・ワークショップを提供します。参加者の役割や習熟度、業務課題に合わせて、学びを実践につなげます。</p>
         <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>経営者・実務者向けセミナー</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>経営者・実務者向け研修</li>
           <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AI活用の基礎〜実践</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>事例で学ぶワークショップ</li>
-          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新動向のキャッチアップ</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>実務に沿ったワークショップ</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>組織に合わせた内容設計</li>
         </ul>
       </div>
       <div class="reveal service-media">
-        <img class="service-image" src="/uploads/service-03.png" alt="法人向けAIセミナー">
+        <img class="service-image" src="/uploads/service-03.png" alt="NaS AcademyによるAI研修・人材育成">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICE 04 ===== -->
+<section id="service-04" class="sec sec-light" style="scroll-margin-top:90px">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;direction:rtl" class="grid-2">
+      <div class="reveal-left" style="direction:ltr">
+        <span class="tag-pill">04</span>
+        <h2 style="font-size:26px;font-weight:700;margin:16px 0 18px;line-height:1.5">NaS Advisory</h2>
+        <p style="font-size:14.5px;color:var(--color-text-secondary);line-height:2;margin:0 0 18px">AI活用について継続的に相談し、方針や施策を検討したい企業に向けたアドバイザリー事業です。お客様の課題や状況に合わせて、AIの選び方や業務への取り入れ方を一緒に考えます。</p>
+        <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>AI活用方針の整理</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>継続的な相談・助言</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>最新AI情報の共有</li>
+          <li style="display:flex;align-items:center;gap:9px;font-size:13.5px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>課題に応じた施策検討</li>
+        </ul>
+      </div>
+      <div class="reveal service-media" style="direction:ltr">
+        <img class="service-image" src="/uploads/service-04.png" alt="NaS AdvisoryによるAI活用アドバイザリー">
       </div>
     </div>
   </div>
